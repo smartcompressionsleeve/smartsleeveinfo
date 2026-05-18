@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery — Smart Compression Sleeve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .gallery-section {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .gallery-section + .gallery-section {
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(123, 45, 63, 0.12);
+  }
+
+  .gallery-section h3 {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--burgundy-deep);
+    margin-bottom: 0.4rem;
+  }
+
+  .gallery-section h3 em {
+    font-style: italic;
+    color: var(--burgundy);
+    font-weight: 400;
+  }
+
+  .gallery-section .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+
+  .gallery-section .description {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    line-height: 1.5;
+    max-width: 38rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Different grid styles for variety */
+  .grid-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .grid-two-asymmetric {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .grid-two-asymmetric .photo-tile.large { grid-row: span 2; }
+
+  .grid-mosaic {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 200px 200px;
+    gap: 1.5rem;
+  }
+
+  .grid-mosaic .photo-tile:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .grid-mosaic .photo-tile:nth-child(2) { grid-column: span 2; }
+  .grid-mosaic .photo-tile:nth-child(3) { grid-column: span 1; }
+  .grid-mosaic .photo-tile:nth-child(4) { grid-column: span 1; }
+
+  .photo-tile {
+    background: var(--blush-soft);
+    border: 1px solid var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--burgundy);
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s ease;
+  }
+
+  .photo-tile:hover { transform: scale(1.02); }
+
+  .photo-tile.tall { aspect-ratio: 3/4; }
+
+  .photo-tile p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .photo-tile small {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--rose);
+    margin-top: 0.3rem;
+  }
+
+  /* Video block */
+  .video-block {
+    background: var(--burgundy-deep);
+    color: var(--cream);
+    padding: 4rem;
+    margin: 3rem 0 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-block::before {
+    content: '';
+    position: absolute;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(183, 110, 121, 0.18) 0%, transparent 70%);
+    top: -10rem; left: -10rem;
+    pointer-events: none;
+  }
+
+  .video-block h3 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    position: relative; z-index: 2;
+  }
+
+  .video-block p {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--blush);
+    margin-bottom: 2rem;
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; z-index: 2;
+  }
+
+  .video-placeholder {
+    aspect-ratio: 16/9;
+    background: rgba(244, 224, 224, 0.08);
+    border: 1px dashed var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--blush);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+
+  .video-placeholder svg {
+    width: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .video-placeholder p {
+    margin: 0;
+    color: var(--blush);
+  }
+
+  @media (max-width: 900px) {
+    .grid-three { grid-template-columns: repeat(2, 1fr); }
+    .grid-two-asymmetric { grid-template-columns: 1fr; }
+    .grid-two-asymmetric .photo-tile.large { grid-row: span 1; }
+    .grid-mosaic {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+    .grid-mosaic .photo-tile:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+    .grid-mosaic .photo-tile:nth-child(2) { grid-column: span 2; }
+    .grid-mosaic .photo-tile:nth-child(3),
+    .grid-mosaic .photo-tile:nth-child(4) { grid-column: span 1; }
+  }
+
+  @media (max-width: 600px) {
+    .grid-three { grid-template-columns: 1fr; }
+    .grid-mosaic .photo-tile { grid-column: span 2 !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="brand">Smart Compression Sleeve <span>·</span> Team R</a>
+  <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="has-dropdown active">
+      <a href="solution.html">The Project</a>
+      <ul class="dropdown">
+        <li><a href="problem.html">The Problem<small>The unmet need</small></a></li>
+        <li><a href="solution.html">The Device<small>Sensors & form factor</small></a></li>
+        <li><a href="gallery.html">Gallery<small>Build photos & demos</small></a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="results.html">Results</a>
+      <ul class="dropdown">
+        <li><a href="results.html#validation">Sensor Validation<small>IMU, EMG, PPG traces</small></a></li>
+        <li><a href="results.html#classifier">Classifier<small>96.6% accuracy + matrix</small></a></li>
+      </ul>
+    </li>
+    <li><a href="team.html">Team</a></li>
+    <li class="has-dropdown">
+      <a href="tech.html">Tech</a>
+      <ul class="dropdown">
+        <li><a href="tech.html#code">Code & Repos<small>GitHub links</small></a></li>
+        <li><a href="tech.html#architecture">Architecture<small>System diagram</small></a></li>
+        <li><a href="tech.html#hardware">Hardware<small>Bill of materials</small></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Gallery</div>
+    <h1 class="fade-up">Behind the <em>build.</em></h1>
+    <p class="fade-up" style="animation-delay: 0.15s;">
+      Soldering, sewing, debugging, and demoing — the parts of senior design that don't
+      fit on a poster.
+    </p>
+  </div>
+</section>
+
+<section>
+  <!-- VIDEO BLOCK -->
+  <div class="video-block">
+    <h3>Live demo</h3>
+    <p>Watch the sleeve classify form in real time during a bicep curl session.</p>
+    <div class="video-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 8L16 12L10 16V8Z" fill="currentColor"/>
+      </svg>
+      <p>Demo video placeholder</p>
+      <small style="display:block; margin-top:0.5rem;">Embed YouTube or replace with &lt;video&gt; tag</small>
+    </div>
+  </div>
+
+  <!-- DEVICE SHOTS -->
+  <div class="gallery-section">
+    <div class="label">The Device</div>
+    <h3>Finished <em>form factor.</em></h3>
+    <p class="description">Final assembled sleeve, sensor pods, and worn shots.</p>
+
+    <div class="grid-two-asymmetric">
+      <div class="photo-tile large tall">
+        <p>Hero device shot</p>
+        <small>Replace</small>
+      </div>
+      <div class="photo-tile">
+        <p>Sensor pod close-up</p>
+        <small>Replace</small>
+      </div>
+      <div class="photo-tile">
+        <p>Worn / in-use shot</p>
+        <small>Replace</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILD PROCESS -->
+  <div class="gallery-section">
+    <div class="label">Build Process</div>
+    <h3>Iteration in <em>full color.</em></h3>
+    <p class="description">Soldering, 3D printing, fabric layering, and prototyping.</p>
+
+    <div class="grid-mosaic">
+      <div class="photo-tile">
+        <p>Circuit soldering in progress</p>
+        <small>Replace</small>
+      </div>
+      <div class="photo-tile">
+        <p>3D-printed sensor casing</p>
+        <small>Replace</small>
+      </div>
+      <div class="photo-tile">
+        <p>Fabric layering</p>
+        <small>Replace</small>
+      </div>
+      <div class="photo-tile">
+        <p>Team working session</p>
+        <small>Replace</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTING -->
+  <div class="gallery-section">
+    <div class="label">Testing & Data</div>
+    <h3>Trials and <em>iteration.</em></h3>
+    <p class="description">Bicep curl data collection sessions, debug sessions, lab work.</p>
+
+    <div class="grid-three">
+      <div class="photo-tile">
+        <p>Subject doing curls</p>
+        <small>Replace</small>
+      </div>
+      <div class="photo-tile">
+        <p>Live data on laptop</p>
+        <small>Replace</small>
+      </div>
+      <div class="photo-tile">
+        <p>Lab debugging</p>
+        <small>Replace</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-brand">Smart Compression<br>Sleeve · Team R</div>
+      <p class="footer-tagline">A senior design project bridging consumer wearables and clinical rehabilitation — built at UC Riverside.</p>
+    </div>
+    <div>
+      <h5>Project</h5>
+      <ul>
+        <li><a href="problem.html">The Problem</a></li>
+        <li><a href="solution.html">The Device</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="team.html">The Team</a></li>
+        <li><a href="tech.html">Tech</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">GitHub Repository</a></li>
+        <li><a href="#">Demo Video</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Team R · BIEN 175B · UC Riverside</div>
+    <div><em>Built with care in Riverside, California.</em></div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

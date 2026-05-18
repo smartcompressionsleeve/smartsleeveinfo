@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Device — Smart Compression Sleeve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .device-overview {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .device-image {
+    aspect-ratio: 1/1;
+    background: var(--blush-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    box-shadow:
+      0 25px 50px -15px rgba(74, 15, 24, 0.2),
+      0 0 0 1px var(--rose);
+    position: relative;
+  }
+
+  .device-image::before {
+    content: '';
+    position: absolute;
+    inset: 1.5rem;
+    border: 1px solid var(--rose);
+    pointer-events: none;
+  }
+
+  .device-image-placeholder {
+    text-align: center;
+    color: var(--burgundy);
+  }
+
+  .device-image-placeholder p {
+    font-family: var(--serif);
+    font-style: italic;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .device-image-placeholder small {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--rose);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 0.5rem;
+  }
+
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .feature {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.2rem;
+    align-items: start;
+  }
+
+  .feature-number {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--rose);
+    line-height: 1;
+    min-width: 2.5rem;
+  }
+
+  .feature-content h4 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--burgundy-deep);
+    margin-bottom: 0.3rem;
+  }
+
+  .feature-content p {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    line-height: 1.55;
+  }
+
+  /* Sensors detailed grid */
+  .sensors {
+    background: var(--cream-warm);
+    border-top: 1px solid rgba(123, 45, 63, 0.1);
+  }
+
+  .sensor-grid {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .sensor-card {
+    background: var(--cream);
+    padding: 2rem;
+    border-left: 3px solid var(--burgundy);
+  }
+
+  .sensor-card h4 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--burgundy-deep);
+    margin-bottom: 0.2rem;
+  }
+
+  .sensor-card .role {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1rem;
+  }
+
+  .sensor-card p {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+
+  .sensor-card .specs {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(123, 45, 63, 0.12);
+  }
+
+  .sensor-card .spec {
+    font-size: 0.78rem;
+    color: var(--burgundy);
+  }
+
+  .sensor-card .spec strong {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--burgundy-deep);
+    font-size: 1rem;
+  }
+
+  /* Form factor / layers */
+  .layers {
+    background: var(--cream);
+  }
+
+  .layers-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .layer-list {
+    margin-top: 2rem;
+  }
+
+  .layer-item {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(123, 45, 63, 0.12);
+    display: grid;
+    grid-template-columns: 3rem 1fr auto;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .layer-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--rose);
+  }
+
+  .layer-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--burgundy-deep);
+  }
+
+  .layer-name small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--charcoal);
+    margin-top: 0.2rem;
+    font-weight: 300;
+  }
+
+  .layer-thickness {
+    font-size: 0.85rem;
+    color: var(--burgundy);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .device-overview { grid-template-columns: 1fr; gap: 3rem; }
+    .sensor-grid { grid-template-columns: 1fr; }
+    .layers-container { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="brand">Smart Compression Sleeve <span>·</span> Team R</a>
+  <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="has-dropdown active">
+      <a href="solution.html">The Project</a>
+      <ul class="dropdown">
+        <li><a href="problem.html">The Problem<small>The unmet need</small></a></li>
+        <li><a href="solution.html">The Device<small>Sensors & form factor</small></a></li>
+        <li><a href="gallery.html">Gallery<small>Build photos & demos</small></a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="results.html">Results</a>
+      <ul class="dropdown">
+        <li><a href="results.html#validation">Sensor Validation<small>IMU, EMG, PPG traces</small></a></li>
+        <li><a href="results.html#classifier">Classifier<small>96.6% accuracy + matrix</small></a></li>
+      </ul>
+    </li>
+    <li><a href="team.html">Team</a></li>
+    <li class="has-dropdown">
+      <a href="tech.html">Tech</a>
+      <ul class="dropdown">
+        <li><a href="tech.html#code">Code & Repos<small>GitHub links</small></a></li>
+        <li><a href="tech.html#architecture">Architecture<small>System diagram</small></a></li>
+        <li><a href="tech.html#hardware">Hardware<small>Bill of materials</small></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">The Device</div>
+    <h1 class="fade-up">Multi-sensor fusion in a <em>soft, wearable</em> form.</h1>
+    <p class="fade-up" style="animation-delay: 0.15s;">
+      Six sensors, three fabric layers, one Random Forest. Designed for the
+      patient's living room — not the lab bench.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="device-overview">
+    <div>
+      <div class="section-label">Overview</div>
+      <h2 class="section-title">A wearable, <em>built deliberately.</em></h2>
+      <p style="font-size: 1.02rem; line-height: 1.7; color: var(--charcoal);">
+        The Smart Compression Sleeve combines multiple sensor modalities in a comfortable
+        compression sleeve form factor. Each design decision balances accuracy, comfort,
+        cost, and the reality of unsupervised use.
+      </p>
+
+      <div class="feature-list">
+        <div class="feature">
+          <div class="feature-number">i.</div>
+          <div class="feature-content">
+            <h4>Comfortable for 30+ minute sessions</h4>
+            <p>Three-layer nylon-spandex with TPU lattice for sensor mounting and adjustable Velcro closure.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-number">ii.</div>
+          <div class="feature-content">
+            <h4>Real-time form feedback</h4>
+            <p>Bicep curl classification runs continuously, with feedback delivered to a Flutter mobile app via Python bridge.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-number">iii.</div>
+          <div class="feature-content">
+            <h4>Replaceable, serviceable components</h4>
+            <p>3D-printed sensor casings with sliding access for easy sensor or wire replacement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="device-image">
+      <div class="device-image-placeholder">
+        <svg viewBox="0 0 200 240" fill="none" style="width: 60%; max-width: 240px;">
+          <path d="M70 30 Q70 20 80 20 L120 20 Q130 20 130 30 L130 215 Q130 225 120 225 L80 225 Q70 225 70 215 Z" stroke="#7B2D3F" stroke-width="2" fill="#FAEFEF"/>
+          <rect x="85" y="60" width="30" height="22" rx="3" fill="#7B2D3F"/>
+          <rect x="85" y="105" width="30" height="22" rx="3" fill="#7B2D3F"/>
+          <rect x="85" y="155" width="30" height="22" rx="3" fill="#7B2D3F"/>
+        </svg>
+        <p>Device exploded view</p>
+        <small>Replace with image</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sensors">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">The Sensors</div>
+    <h2 class="section-title">Six sensors, <em>three modalities.</em></h2>
+    <p style="font-size: 1rem; max-width: 50rem; line-height: 1.7; color: var(--charcoal);">
+      The combination of inertial, electromyographic, and photoplethysmographic signals
+      gives the classifier a complete picture of each rep — kinematics, muscle effort,
+      and cardiovascular response.
+    </p>
+
+    <div class="sensor-grid">
+      <div class="sensor-card">
+        <h4>ICM-20948 IMU × 2</h4>
+        <div class="role">Joint Kinematics</div>
+        <p>
+          Two 9-DOF IMUs mounted on the upper arm and forearm, multiplexed through a
+          TCA9548A I²C bus expander. Combined to compute elbow flexion angle in real time.
+        </p>
+        <div class="specs">
+          <div class="spec"><strong>9-DOF</strong>Accel + Gyro + Mag</div>
+          <div class="spec"><strong>I²C</strong>via TCA9548A mux</div>
+        </div>
+      </div>
+
+      <div class="sensor-card">
+        <h4>DFRobot Analog EMG</h4>
+        <div class="role">Muscle Activation</div>
+        <p>
+          Surface electromyography sensor placed over the biceps brachii. Detects muscle
+          activation magnitude and timing relative to each rep phase.
+        </p>
+        <div class="specs">
+          <div class="spec"><strong>Analog</strong>on pin A1</div>
+          <div class="spec"><strong>Dry electrodes</strong>Surface contact</div>
+        </div>
+      </div>
+
+      <div class="sensor-card">
+        <h4>DFRobot Gravity PPG</h4>
+        <div class="role">Heart Rate</div>
+        <p>
+          Photoplethysmography sensor for continuous heart rate monitoring. Used to flag
+          cardiovascular strain during sustained rehabilitation sessions.
+        </p>
+        <div class="specs">
+          <div class="spec"><strong>Analog</strong>continuous</div>
+          <div class="spec"><strong>100 Hz</strong>sampling</div>
+        </div>
+      </div>
+
+      <div class="sensor-card">
+        <h4>Adafruit Feather nRF52840</h4>
+        <div class="role">MCU</div>
+        <p>
+          Onboard microcontroller that aggregates all sensor channels and streams
+          synchronized packets to a host computer via wired USB serial.
+        </p>
+        <div class="specs">
+          <div class="spec"><strong>nRF52840</strong>ARM Cortex-M4</div>
+          <div class="spec"><strong>USB serial</strong>wired streaming</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="layers">
+  <div class="layers-container">
+    <div>
+      <div class="section-label">Form Factor</div>
+      <h2 class="section-title">Three layers, <em>one wearable.</em></h2>
+      <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal);">
+        The compression sleeve isn't a single piece of fabric — it's a layered composite
+        designed to maintain sensor position, distribute pressure, and stay comfortable
+        across rehabilitation sessions.
+      </p>
+
+      <div class="layer-list">
+        <div class="layer-item">
+          <div class="layer-num">i.</div>
+          <div class="layer-name">Inner Nylon-Spandex<small>Skin contact layer</small></div>
+          <div class="layer-thickness">6% comp.</div>
+        </div>
+        <div class="layer-item">
+          <div class="layer-num">ii.</div>
+          <div class="layer-name">TPU Lattice<small>Sensor mounting structure</small></div>
+          <div class="layer-thickness">0.75 in</div>
+        </div>
+        <div class="layer-item">
+          <div class="layer-num">iii.</div>
+          <div class="layer-name">Outer Nylon-Spandex<small>Adjustable Velcro closure</small></div>
+          <div class="layer-thickness">8% comp.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="device-image">
+      <div class="device-image-placeholder">
+        <svg viewBox="0 0 200 200" fill="none" style="width: 60%;">
+          <rect x="40" y="40" width="120" height="20" fill="#F4E0E0" stroke="#7B2D3F"/>
+          <rect x="40" y="65" width="120" height="40" fill="#FAEFEF" stroke="#7B2D3F" stroke-dasharray="3,3"/>
+          <rect x="40" y="110" width="120" height="20" fill="#F4E0E0" stroke="#7B2D3F"/>
+          <text x="100" y="155" text-anchor="middle" font-family="serif" font-style="italic" font-size="14" fill="#7B2D3F">Three-layer composite</text>
+        </svg>
+        <p>Layer cross-section</p>
+        <small>Replace with image</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-brand">Smart Compression<br>Sleeve · Team R</div>
+      <p class="footer-tagline">A senior design project bridging consumer wearables and clinical rehabilitation — built at UC Riverside.</p>
+    </div>
+    <div>
+      <h5>Project</h5>
+      <ul>
+        <li><a href="problem.html">The Problem</a></li>
+        <li><a href="solution.html">The Device</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="team.html">The Team</a></li>
+        <li><a href="tech.html">Tech</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">GitHub Repository</a></li>
+        <li><a href="#">Demo Video</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Team R · BIEN 175B · UC Riverside</div>
+    <div><em>Built with care in Riverside, California.</em></div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

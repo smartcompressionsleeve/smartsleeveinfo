@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Results — Smart Compression Sleeve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .headline-banner {
+    background: var(--burgundy-deep);
+    color: var(--cream);
+    padding: 6rem 3rem;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .headline-banner::before, .headline-banner::after {
+    content: '';
+    position: absolute;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .headline-banner::before {
+    background: radial-gradient(circle, rgba(183, 110, 121, 0.18) 0%, transparent 70%);
+    top: -10rem; left: -10rem;
+  }
+
+  .headline-banner::after {
+    background: radial-gradient(circle, rgba(244, 224, 224, 0.10) 0%, transparent 70%);
+    bottom: -10rem; right: -10rem;
+  }
+
+  .headline-banner .section-label {
+    justify-content: center;
+    color: var(--rose);
+  }
+
+  .headline-banner .section-label::before { background: var(--rose); }
+
+  .headline-number {
+    font-family: var(--serif);
+    font-size: clamp(5rem, 13vw, 10rem);
+    font-weight: 500;
+    line-height: 0.9;
+    margin: 2rem 0 1rem;
+    letter-spacing: -0.04em;
+    position: relative; z-index: 2;
+  }
+
+  .headline-number em {
+    font-style: italic;
+    color: var(--rose);
+    font-size: 0.5em;
+    font-weight: 400;
+    vertical-align: 0.45em;
+    margin-left: 0.5rem;
+  }
+
+  .headline-caption {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--blush);
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    position: relative; z-index: 2;
+  }
+
+  .meta-item .value {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .meta-item .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-top: 0.5rem;
+  }
+
+  /* Results sections */
+  .results-section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .figure-block {
+    background: var(--cream);
+    border: 1px solid rgba(123, 45, 63, 0.12);
+    padding: 2.5rem;
+    margin: 2rem 0;
+  }
+
+  .figure-placeholder {
+    aspect-ratio: 16/7;
+    background: var(--blush-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--burgundy);
+    border: 1px dashed var(--rose);
+  }
+
+  .figure-placeholder p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+
+  .figure-placeholder small {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--rose);
+    margin-top: 0.5rem;
+  }
+
+  .figure-caption {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(123, 45, 63, 0.12);
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+    font-family: var(--serif);
+  }
+
+  .figure-caption strong {
+    font-family: var(--sans);
+    font-weight: 600;
+    color: var(--burgundy);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Per-class breakdown */
+  .class-breakdown {
+    background: var(--cream-warm);
+    border-top: 1px solid rgba(123, 45, 63, 0.1);
+  }
+
+  .class-grid {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .class-card {
+    background: var(--cream);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-top: 3px solid var(--burgundy);
+  }
+
+  .class-card h4 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--burgundy-deep);
+    margin-bottom: 0.4rem;
+  }
+
+  .class-card .n {
+    font-size: 0.78rem;
+    color: var(--rose);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .class-card .acc {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--burgundy);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .class-card .label {
+    font-size: 0.75rem;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Interpretation bullets */
+  .interpretation ul {
+    list-style: none;
+    margin-top: 2rem;
+  }
+
+  .interpretation li {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(123, 45, 63, 0.12);
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--charcoal);
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .interpretation li::before {
+    content: '✦';
+    color: var(--rose);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .class-grid { grid-template-columns: repeat(2, 1fr); }
+    .meta-row { gap: 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .class-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="brand">Smart Compression Sleeve <span>·</span> Team R</a>
+  <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="has-dropdown">
+      <a href="solution.html">The Project</a>
+      <ul class="dropdown">
+        <li><a href="problem.html">The Problem<small>The unmet need</small></a></li>
+        <li><a href="solution.html">The Device<small>Sensors & form factor</small></a></li>
+        <li><a href="gallery.html">Gallery<small>Build photos & demos</small></a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown active">
+      <a href="results.html">Results</a>
+      <ul class="dropdown">
+        <li><a href="#validation">Sensor Validation<small>IMU, EMG, PPG traces</small></a></li>
+        <li><a href="#classifier">Classifier<small>96.6% accuracy + matrix</small></a></li>
+      </ul>
+    </li>
+    <li><a href="team.html">Team</a></li>
+    <li class="has-dropdown">
+      <a href="tech.html">Tech</a>
+      <ul class="dropdown">
+        <li><a href="tech.html#code">Code & Repos<small>GitHub links</small></a></li>
+        <li><a href="tech.html#architecture">Architecture<small>System diagram</small></a></li>
+        <li><a href="tech.html#hardware">Hardware<small>Bill of materials</small></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!-- HEADLINE -->
+<section class="headline-banner">
+  <div class="section-label">Headline Result</div>
+  <div class="headline-number">96.6<em>%</em></div>
+  <p class="headline-caption">
+    Four-class form classification accuracy on bicep curls — evaluated with five-fold
+    trial-grouped cross-validation across 417 labeled repetitions and 59 trials.
+  </p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <div class="value">±3.5%</div>
+      <div class="label">Standard deviation</div>
+    </div>
+    <div class="meta-item">
+      <div class="value">417</div>
+      <div class="label">Labeled reps</div>
+    </div>
+    <div class="meta-item">
+      <div class="value">59</div>
+      <div class="label">Trials</div>
+    </div>
+    <div class="meta-item">
+      <div class="value">4</div>
+      <div class="label">Form classes</div>
+    </div>
+  </div>
+</section>
+
+<!-- SENSOR VALIDATION -->
+<section id="validation">
+  <div class="results-section">
+    <div class="section-label">Sensor Validation</div>
+    <h2 class="section-title">Three sensors, <em>three time-aligned signals.</em></h2>
+    <p style="font-size: 1rem; max-width: 50rem; line-height: 1.7; color: var(--charcoal);">
+      Before training any classifier, we verified that each sensor produces meaningful,
+      readable signal aligned with the curl protocol. The trace below shows IMU elbow
+      angle, EMG envelope, and PPG-derived heart rate from a single synchronized 15-second
+      trial. CURL phases are shaded.
+    </p>
+
+    <div class="figure-block">
+      <!-- Replace with: <img src="images/sensor_validation.png" alt="Three-panel sensor validation figure" style="width:100%;"> -->
+      <div class="figure-placeholder">
+        <p>Sensor validation figure (3 panels: IMU, EMG, PPG)</p>
+        <small>Replace with sensor_validation.png</small>
+      </div>
+      <div class="figure-caption">
+        <strong>Figure 1 — Multi-sensor validation</strong>
+        IMU elbow angle (left) tracks three full-ROM curl reps cleanly. EMG envelope (center)
+        shows clear activation bursts aligned with each shaded CURL phase. PPG heart rate
+        (right) sustains a stable baseline around 72 bpm, demonstrating reliable cardiac
+        signal acquisition.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSIFIER -->
+<section id="classifier" class="class-breakdown">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">Classifier Performance</div>
+    <h2 class="section-title">Four classes, <em>cleanly separated.</em></h2>
+    <p style="font-size: 1rem; max-width: 50rem; line-height: 1.7; color: var(--charcoal);">
+      A Random Forest classifier was trained on per-rep features extracted from
+      IMU and EMG signals. Cross-validation was performed using GroupKFold by trial
+      to prevent within-trial leakage between train and test sets.
+    </p>
+
+    <div class="figure-block">
+      <!-- Replace with: <img src="images/confusion_matrix.png" alt="Confusion matrix"> -->
+      <div class="figure-placeholder">
+        <p>Confusion matrix figure</p>
+        <small>Replace with confusion_matrix.png</small>
+      </div>
+      <div class="figure-caption">
+        <strong>Figure 2 — Confusion matrix across 5 folds</strong>
+        Diagonal dominance across all four classes. The strongest confusion is between
+        Swinging and Left-swinging, which share an exaggerated motion pattern.
+      </div>
+    </div>
+
+    <h3 style="font-family: var(--serif); font-size: 1.6rem; color: var(--burgundy-deep); margin-top: 3rem; font-weight: 500;">Per-class accuracy</h3>
+
+    <div class="class-grid">
+      <div class="class-card">
+        <h4>Normal</h4>
+        <div class="n">n = 263 reps</div>
+        <div class="acc">99.2<small style="font-size:0.5em;">%</small></div>
+        <div class="label">Correct</div>
+      </div>
+      <div class="class-card">
+        <h4>Under-extension</h4>
+        <div class="n">n = 76 reps</div>
+        <div class="acc">96.1<small style="font-size:0.5em;">%</small></div>
+        <div class="label">Correct</div>
+      </div>
+      <div class="class-card">
+        <h4>Swinging</h4>
+        <div class="n">n = 42 reps</div>
+        <div class="acc">90.5<small style="font-size:0.5em;">%</small></div>
+        <div class="label">Correct</div>
+      </div>
+      <div class="class-card">
+        <h4>Left-swinging</h4>
+        <div class="n">n = 36 reps</div>
+        <div class="acc">83.3<small style="font-size:0.5em;">%</small></div>
+        <div class="label">Correct</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERPRETATION -->
+<section class="interpretation">
+  <div class="results-section">
+    <div class="section-label">Interpretation</div>
+    <h2 class="section-title">What the <em>numbers mean.</em></h2>
+    <ul>
+      <li>
+        Multi-sensor integration confirmed across IMU, EMG, and PPG channels — all three
+        produce usable, time-aligned signal in a single synchronized trial.
+      </li>
+      <li>
+        The Random Forest classifier reliably distinguishes all four form classes, with
+        sub-5% variance across folds (5-fold GroupKFold, trial-grouped to prevent leakage).
+      </li>
+      <li>
+        Closest confusion occurs between Swinging and Left-swinging — both share an
+        exaggerated lateral motion pattern. Normal vs. Swinging shows the strongest
+        separation.
+      </li>
+      <li>
+        Current dataset has limited subject diversity for some classes; multi-subject
+        validation is in progress to characterize generalization to new users.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-brand">Smart Compression<br>Sleeve · Team R</div>
+      <p class="footer-tagline">A senior design project bridging consumer wearables and clinical rehabilitation — built at UC Riverside.</p>
+    </div>
+    <div>
+      <h5>Project</h5>
+      <ul>
+        <li><a href="problem.html">The Problem</a></li>
+        <li><a href="solution.html">The Device</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="team.html">The Team</a></li>
+        <li><a href="tech.html">Tech</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">GitHub Repository</a></li>
+        <li><a href="#">Demo Video</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Team R · BIEN 175B · UC Riverside</div>
+    <div><em>Built with care in Riverside, California.</em></div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
