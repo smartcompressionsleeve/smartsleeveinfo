@@ -315,23 +315,20 @@
     <h2 class="section-title">Three sensors, <em>three time-aligned signals.</em></h2>
     <p style="font-size: 1rem; max-width: 50rem; line-height: 1.7; color: var(--charcoal);">
       Before training any classifier, we verified that each sensor produces meaningful,
-      readable signal aligned with the curl protocol. The trace below shows IMU elbow
-      angle, EMG envelope, and PPG-derived heart rate from a single synchronized 15-second
-      trial. CURL phases are shaded.
+      readable signal aligned with the curl protocol. The trace below shows EMG activity,
+      IMU angular velocity, and the PPG waveform from a single synchronized 10-second
+      trial.
     </p>
 
     <div class="figure-block">
-      <!-- Replace with: <img src="images/sensor_validation.png" alt="Three-panel sensor validation figure" style="width:100%;"> -->
-      <div class="figure-placeholder">
-        <p>Sensor validation figure (3 panels: IMU, EMG, PPG)</p>
-        <small>Replace with sensor_validation.png</small>
-      </div>
+      <img src="images/sensor_validation.png" alt="Three stacked sensor panels over a 10-second synchronized trial: EMG counts, IMU gyro Z, and relative PPG" style="width:100%;height:auto;display:block;">
       <div class="figure-caption">
         <strong>Figure 1 — Multi-sensor validation</strong>
-        IMU elbow angle (left) tracks three full-ROM curl reps cleanly. EMG envelope (center)
-        shows clear activation bursts aligned with each shaded CURL phase. PPG heart rate
-        (right) sustains a stable baseline around 72 bpm, demonstrating reliable cardiac
-        signal acquisition.
+        All three sensors captured simultaneously over a 10-second trial. EMG (top) shows a
+        quiet baseline followed by clear activation bursts once the curl begins. IMU gyro Z
+        (middle) traces a single smooth flexion–extension arc, peaking near 45 dps at
+        mid-curl. PPG (bottom) sustains a clean, regular pulse waveform throughout,
+        confirming reliable signal on all channels.
       </div>
     </div>
   </div>
@@ -349,15 +346,14 @@
     </p>
 
     <div class="figure-block">
-      <!-- Replace with: <img src="images/confusion_matrix.png" alt="Confusion matrix"> -->
-      <div class="figure-placeholder">
-        <p>Confusion matrix figure</p>
-        <small>Replace with confusion_matrix.png</small>
-      </div>
+      <img src="images/confusion_matrix.png" alt="Four-class confusion matrix: rows are actual class, columns are predicted class, with strong diagonal dominance" style="width:100%;max-width:640px;height:auto;display:block;margin:0 auto;">
       <div class="figure-caption">
         <strong>Figure 2 — Confusion matrix across 5 folds</strong>
-        Diagonal dominance across all four classes. The strongest confusion is between
-        Swinging and Left-swinging, which share an exaggerated motion pattern.
+        Rows are the actual class, columns the predicted class; cells show rep counts with
+        row-normalized percentages. Strong diagonal dominance across all four classes. The
+        only notable confusion is Left-swinging predicted as Swinging (6 reps, 17%) — both
+        share an exaggerated lateral motion — and a few Swinging reps predicted as
+        Left-swinging (3 reps, 7%).
       </div>
     </div>
 
