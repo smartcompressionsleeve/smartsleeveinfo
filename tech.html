@@ -4,12 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tech — Smart Compression Sleeve</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="styles.css">
+
 <style>
-  /* Code repos section */
   .repos {
     max-width: 1100px;
     margin: 0 auto;
@@ -71,14 +74,15 @@
     word-break: break-all;
   }
 
-  /* Architecture section */
-  .architecture {
+  .architecture,
+  .engineering-specs {
     background: var(--cream-warm);
     border-top: 1px solid rgba(123, 45, 63, 0.1);
     border-bottom: 1px solid rgba(123, 45, 63, 0.1);
   }
 
-  .arch-figure {
+  .arch-figure,
+  .specs-figure {
     background: var(--cream);
     border: 1px solid rgba(123, 45, 63, 0.12);
     margin-top: 2rem;
@@ -86,12 +90,24 @@
     display: block;
   }
 
-  .arch-figure img {
+  .arch-figure img,
+  .specs-figure img {
     display: block;
     width: 100%;
     height: auto;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .figure-caption {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--charcoal);
+    text-align: center;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .stack-list {
@@ -123,7 +139,6 @@
     font-weight: 500;
   }
 
-  /* Hardware BOM */
   .hardware-table {
     max-width: 1000px;
     margin: 3rem auto 0;
@@ -140,7 +155,9 @@
     border-bottom: 1px solid rgba(123, 45, 63, 0.08);
   }
 
-  .bom-row:last-child { border-bottom: none; }
+  .bom-row:last-child {
+    border-bottom: none;
+  }
 
   .bom-row.header {
     background: var(--burgundy);
@@ -151,7 +168,9 @@
     text-transform: uppercase;
   }
 
-  .bom-row.header > div { color: var(--cream); }
+  .bom-row.header > div {
+    color: var(--cream);
+  }
 
   .bom-row .name {
     font-family: var(--serif);
@@ -178,26 +197,53 @@
   }
 
   @media (max-width: 700px) {
-    .stack-list { grid-template-columns: 1fr; }
+    .stack-list {
+      grid-template-columns: 1fr;
+    }
+
     .bom-row {
       grid-template-columns: 1fr;
       gap: 0.4rem;
       padding: 1rem 1.5rem;
     }
-    .bom-row.header { display: none; }
-    .bom-row .qty, .bom-row .source { text-align: left; }
-    .bom-row .qty::before { content: 'Qty: '; color: var(--rose); }
-    .bom-row .source::before { content: 'Source: '; color: var(--burgundy); font-weight: 500; }
+
+    .bom-row.header {
+      display: none;
+    }
+
+    .bom-row .qty,
+    .bom-row .source {
+      text-align: left;
+    }
+
+    .bom-row .qty::before {
+      content: 'Qty: ';
+      color: var(--rose);
+    }
+
+    .bom-row .source::before {
+      content: 'Source: ';
+      color: var(--burgundy);
+      font-weight: 500;
+    }
   }
 </style>
 </head>
+
 <body>
 
 <nav class="site-nav">
   <a href="index.html" class="brand">Smart Compression Sleeve <span>·</span> Team R</a>
-  <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
+
     <li class="has-dropdown">
       <a href="solution.html">The Project</a>
       <ul class="dropdown">
@@ -206,6 +252,7 @@
         <li><a href="gallery.html">Gallery<small>Build photos & demos</small></a></li>
       </ul>
     </li>
+
     <li class="has-dropdown">
       <a href="results.html">Results</a>
       <ul class="dropdown">
@@ -213,12 +260,15 @@
         <li><a href="results.html#classifier">Classifier<small>96.6% accuracy + matrix</small></a></li>
       </ul>
     </li>
+
     <li><a href="team.html">Team</a></li>
+
     <li class="has-dropdown active">
       <a href="tech.html">Tech</a>
       <ul class="dropdown">
         <li><a href="#code">Code & Repos<small>GitHub links</small></a></li>
-        <li><a href="#architecture">Architecture<small>System diagram</small></a></li>
+        <li><a href="#architecture">Architecture<small>System pipeline</small></a></li>
+        <li><a href="#specs">Specifications<small>Filters, latency, sampling</small></a></li>
         <li><a href="#hardware">Hardware<small>Bill of materials</small></a></li>
       </ul>
     </li>
@@ -230,8 +280,8 @@
     <div class="section-label">Tech</div>
     <h1 class="fade-up">The stack, <em>laid bare.</em></h1>
     <p class="fade-up" style="animation-delay: 0.15s;">
-      Open repositories, the system architecture from sensor to feedback, and the full
-      bill of materials. Build it yourself, fork it, or just see how it works.
+      Open repositories, the system architecture from sensor to feedback,
+      engineering specifications, and the full bill of materials.
     </p>
   </div>
 </section>
@@ -241,39 +291,55 @@
   <div class="repos">
     <div class="section-label">Code & Repositories</div>
     <h2 class="section-title">Open code, <em>open hardware.</em></h2>
+
     <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
-      All project code is open on GitHub. The firmware, the Python bridge, the classifier
-      training pipeline, and the Flutter companion app each live in their own repo.
+      All project code is open on GitHub. The firmware, the Python bridge,
+      the classifier training pipeline, and the Flutter companion app each
+      live in their own repo.
     </p>
 
     <div class="repo-grid">
+
       <a href="#" class="repo-card">
         <div class="lang">C++ · Arduino</div>
         <h4>Sleeve Firmware</h4>
-        <p>Adafruit Feather nRF52840 firmware: I²C mux drivers, IMU/EMG/PPG sampling loop, USB serial streaming.</p>
+        <p>
+          Adafruit Feather nRF52840 firmware: I²C mux drivers,
+          IMU/EMG/PPG sampling loop, and USB serial streaming.
+        </p>
         <div class="link">github.com/team-r/sleeve-firmware</div>
       </a>
 
       <a href="#" class="repo-card">
         <div class="lang">Python · scikit-learn</div>
         <h4>ML Pipeline</h4>
-        <p>Feature extraction, Random Forest training, GroupKFold cross-validation, and confusion matrix generation.</p>
+        <p>
+          Feature extraction, Random Forest training, GroupKFold
+          cross-validation, and confusion matrix generation.
+        </p>
         <div class="link">github.com/team-r/sleeve-ml</div>
       </a>
 
       <a href="#" class="repo-card">
         <div class="lang">Python · WebSockets</div>
         <h4>Serial Bridge</h4>
-        <p>Reads serial packets from the MCU and broadcasts to the Flutter app over WebSocket for real-time inference.</p>
+        <p>
+          Reads serial packets from the MCU and broadcasts to the Flutter app
+          over WebSocket for real-time inference.
+        </p>
         <div class="link">github.com/team-r/sleeve-bridge</div>
       </a>
 
       <a href="#" class="repo-card">
         <div class="lang">Dart · Flutter</div>
         <h4>Companion App</h4>
-        <p>iOS Flutter app: live form feedback, rep counting, session history backed by Supabase.</p>
+        <p>
+          Flutter app: live form feedback, rep counting, session history,
+          and Supabase-backed data storage.
+        </p>
         <div class="link">github.com/team-r/sleeve-app</div>
       </a>
+
     </div>
   </div>
 </section>
@@ -283,34 +349,75 @@
   <div style="max-width: 1200px; margin: 0 auto;">
     <div class="section-label">System Architecture</div>
     <h2 class="section-title">From skin to feedback, <em>in six steps.</em></h2>
+
     <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
-      The full data path from raw sensor to mobile UI. Each layer is loosely coupled
-      so individual components can be swapped without rewriting the whole stack.
+      The full data path begins with wearable sensors embedded in the sleeve,
+      moves through the microcontroller and USB serial connection, and then
+      passes into a Python bridge for filtering, feature extraction, and
+      machine learning classification before live feedback is shown in Flutter.
     </p>
 
     <figure class="arch-figure">
-      <img src="system_architecture.png"
-           alt="System architecture: dual ICM-20948 IMUs on a TCA9548A I²C multiplexer (CH2 upper arm, CH5 forearm), DFRobot Gravity EMG on analog pin A1, DFRobot Gravity PPG on analog pin A0, all read by an Adafruit Feather nRF52840 and streamed over USB serial to a Python bridge running per-exercise Random Forest classifiers." />
+      <img
+        src="flowdiagramarchitecture.png"
+        alt="Smart Compression Sleeve system pipeline from sensing sleeve to data acquisition, wired serial, Python bridge, Flutter app, and Supabase data storage"
+      >
+      <figcaption class="figure-caption">
+        System-level data pipeline showing how synchronized IMU, EMG, and PPG
+        signals are acquired, processed, classified, displayed, and stored.
+      </figcaption>
     </figure>
 
     <div class="stack-list">
+
       <div class="stack-item">
         <h5>Hardware</h5>
         <p>Adafruit nRF52840 · ICM-20948 × 2 · DFRobot EMG · DFRobot PPG · TCA9548A mux</p>
       </div>
+
       <div class="stack-item">
         <h5>Firmware</h5>
         <p>Arduino C++ · I²C · Analog read · USB Serial @ 115200 baud</p>
       </div>
+
       <div class="stack-item">
         <h5>Bridge & ML</h5>
         <p>Python · pyserial · pandas · scikit-learn · websockets</p>
       </div>
+
       <div class="stack-item">
         <h5>App & Cloud</h5>
-        <p>Flutter · Dart · Supabase (Postgres + Auth)</p>
+        <p>Flutter · Dart · Supabase</p>
       </div>
+
     </div>
+  </div>
+</section>
+
+<!-- ENGINEERING SPECIFICATIONS -->
+<section id="specs" class="engineering-specs">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">Engineering Specifications</div>
+    <h2 class="section-title">Optimized for <em>real-time monitoring.</em></h2>
+
+    <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 52rem;">
+      System parameters were selected to balance signal quality, real-time
+      responsiveness, and stable multi-sensor streaming. The final configuration
+      combines high-rate EMG acquisition, real-time IMU tracking, low-pass PPG
+      smoothing, and latency validation across the full feedback pipeline.
+    </p>
+
+    <figure class="specs-figure">
+      <img
+        src="tabletecspecs.png"
+        alt="Engineering specifications table showing sampling rates, signal processing filters, and latency validation for EMG, IMU, and PPG sensors"
+      >
+      <figcaption class="figure-caption">
+        Engineering specification summary including selected sampling rates,
+        sensor filtering methods, machine learning classifier choice,
+        and measured end-to-end latency for real-time feedback.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -319,82 +426,99 @@
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="section-label">Bill of Materials</div>
     <h2 class="section-title">What's <em>inside the sleeve.</em></h2>
+
     <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
-      Every component, sourced and itemized. Below is the current build configuration —
-      part numbers and sources are listed for reproducibility.
+      Every component, sourced and itemized. Below is the current build
+      configuration — part numbers and sources are listed for reproducibility.
     </p>
 
     <div class="hardware-table">
+
       <div class="bom-row header">
         <div>Component</div>
         <div>Function</div>
         <div>Qty</div>
         <div>Source</div>
       </div>
+
       <div class="bom-row">
         <div class="name">Adafruit Feather nRF52840</div>
         <div class="role">Microcontroller, USB serial host</div>
         <div class="qty">1</div>
         <div class="source">Adafruit</div>
       </div>
+
       <div class="bom-row">
         <div class="name">ICM-20948 IMU</div>
         <div class="role">9-DOF inertial measurement</div>
         <div class="qty">2</div>
         <div class="source">SparkFun</div>
       </div>
+
       <div class="bom-row">
         <div class="name">TCA9548A I²C Mux</div>
         <div class="role">Multiplex two IMUs on shared I²C bus</div>
         <div class="qty">1</div>
         <div class="source">Adafruit</div>
       </div>
+
       <div class="bom-row">
-        <div class="name">DFRobot Analog EMG (SEN0240)</div>
+        <div class="name">DFRobot Analog EMG</div>
         <div class="role">Surface electromyography</div>
         <div class="qty">1</div>
         <div class="source">DFRobot</div>
       </div>
+
       <div class="bom-row">
-        <div class="name">DFRobot Heart Rate (SEN0203)</div>
-        <div class="role">Photoplethysmography for HR</div>
+        <div class="name">DFRobot Heart Rate Sensor</div>
+        <div class="role">Photoplethysmography for heart-rate monitoring</div>
         <div class="qty">1</div>
         <div class="source">DFRobot</div>
       </div>
+
       <div class="bom-row">
         <div class="name">Nylon-Spandex Fabric</div>
-        <div class="role">Inner & outer compression layers</div>
+        <div class="role">Inner and outer compression sleeve layers</div>
         <div class="qty">~0.5 yd</div>
-        <div class="source">Fabric.com</div>
+        <div class="source">Fabric</div>
       </div>
+
       <div class="bom-row">
-        <div class="name">TPU Filament (lattice print)</div>
-        <div class="role">Middle structural / sensor mount layer</div>
+        <div class="name">TPU Filament</div>
+        <div class="role">Flexible middle lattice and sensor support layer</div>
         <div class="qty">~50 g</div>
         <div class="source">Bambu Lab</div>
       </div>
+
       <div class="bom-row">
-        <div class="name">PLA Filament (sensor casings)</div>
-        <div class="role">3D-printed sensor enclosures</div>
+        <div class="name">PLA Filament</div>
+        <div class="role">3D-printed sensor casings</div>
         <div class="qty">~80 g</div>
         <div class="source">Bambu Lab</div>
       </div>
+
       <div class="bom-row">
-        <div class="name">3.7V Li-Po Battery</div>
-        <div class="role">Portable power supply</div>
+        <div class="name">USB Cable</div>
+        <div class="role">Wired serial communication and power during testing</div>
         <div class="qty">1</div>
-        <div class="source">Adafruit</div>
+        <div class="source">Standard</div>
       </div>
+
     </div>
   </div>
 </section>
 
 <footer>
   <div class="footer-content">
+
     <div>
       <div class="footer-brand">Smart Compression<br>Sleeve · Team R</div>
-      <p class="footer-tagline">A senior design project bridging consumer wearables and clinical rehabilitation — built at UC Riverside.</p>
+      <p class="footer-tagline">
+        A senior design project bridging consumer wearables and clinical
+        rehabilitation — built at UC Riverside.
+      </p>
     </div>
+
     <div>
       <h5>Project</h5>
       <ul>
@@ -405,6 +529,7 @@
         <li><a href="tech.html">Tech</a></li>
       </ul>
     </div>
+
     <div>
       <h5>Connect</h5>
       <ul>
@@ -413,7 +538,9 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </div>
+
   </div>
+
   <div class="footer-bottom">
     <div>© 2026 Smart Compression Sleeve · BIEN · UC Riverside</div>
     <div><em>Built with care in Riverside, California.</em></div>
@@ -421,5 +548,6 @@
 </footer>
 
 <script src="nav.js"></script>
+
 </body>
 </html>
