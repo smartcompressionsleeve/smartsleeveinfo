@@ -217,20 +217,36 @@
 <body>
 
   <nav class="site-nav">
-    <a href="index.html" class="brand">
-      Smart Compression Sleeve <span>·</span> Team R
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="problem.html">The Problem</a></li>
-      <li><a href="solution.html">The Device</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="results.html" class="active">Results</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="tech.html">Tech</a></li>
-    </ul>
-  </nav>
+  <a href="index.html" class="brand">Smart Compression Sleeve <span>·</span> Team R</a>
+  <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="has-dropdown">
+      <a href="solution.html">The Project</a>
+      <ul class="dropdown">
+        <li><a href="problem.html">The Problem<small>The unmet need</small></a></li>
+        <li><a href="solution.html">The Device<small>Sensors & form factor</small></a></li>
+        <li><a href="gallery.html">Gallery<small>Build photos & demos</small></a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown active">
+      <a href="results.html">Results</a>
+      <ul class="dropdown">
+        <li><a href="results.html#validation">Sensor Validation<small>IMU, EMG, PPG traces</small></a></li>
+        <li><a href="results.html#classifier">Classifier<small>96.6% accuracy + matrix</small></a></li>
+      </ul>
+    </li>
+    <li><a href="team.html">Team</a></li>
+    <li class="has-dropdown">
+      <a href="tech.html">Tech</a>
+      <ul class="dropdown">
+        <li><a href="tech.html#code">Code & Repos<small>GitHub links</small></a></li>
+        <li><a href="tech.html#architecture">Architecture<small>System diagram</small></a></li>
+        <li><a href="tech.html#hardware">Hardware<small>Bill of materials</small></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
   <section class="page-hero">
 
@@ -385,6 +401,6 @@
     </div>
 
   </footer>
-
+<script src="nav.js"></script>
 </body>
 </html>
