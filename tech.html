@@ -65,7 +65,6 @@
       font-size: 1.55rem;
       font-weight: 700;
       color: var(--maroon);
-      white-space: nowrap;
     }
 
     .brand span {
@@ -129,17 +128,6 @@
       z-index: -2;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 700px;
-      height: 700px;
-      right: -220px;
-      top: -120px;
-      background: radial-gradient(circle, rgba(220, 165, 140, 0.32), transparent 65%);
-      z-index: -1;
-    }
-
     .hero-content {
       max-width: 610px;
     }
@@ -180,7 +168,7 @@
     }
 
     section {
-      margin-top: 48px;
+      margin-top: 58px;
     }
 
     .section-heading {
@@ -226,18 +214,13 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 26px;
-      padding: 30px 30px 26px;
+      padding: 30px;
       box-shadow: var(--shadow);
-      min-height: 218px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: 0.25s ease;
     }
 
     .repo-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 24px 55px rgba(123, 15, 29, 0.16);
     }
 
     .repo-top {
@@ -261,22 +244,16 @@
     .repo-card h3 {
       font-family: "Playfair Display", serif;
       font-size: 1.35rem;
-      color: var(--charcoal);
-      line-height: 1.1;
     }
 
     .repo-card p {
-      color: var(--charcoal);
-      font-size: 0.96rem;
-      line-height: 1.45;
-      margin-bottom: 24px;
+      line-height: 1.5;
+      margin-bottom: 20px;
     }
 
     .repo-link {
       color: var(--maroon);
       font-weight: 800;
-      font-size: 0.92rem;
-      word-break: break-word;
     }
 
     /* ========================= */
@@ -293,18 +270,15 @@
 
     .arch-figure img {
       width: 100%;
-      display: block;
       border-radius: 22px;
-      border: 1px solid rgba(123, 15, 29, 0.14);
-      background: #fff;
+      display: block;
     }
 
     .figure-caption {
       margin-top: 14px;
       color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.5;
       text-align: center;
+      line-height: 1.5;
     }
 
     .stack-list {
@@ -315,31 +289,20 @@
     }
 
     .stack-item {
-      background: rgba(255, 255, 255, 0.48);
-      border: 1px solid rgba(123, 15, 29, 0.16);
+      background: rgba(255,255,255,0.48);
+      border: 1px solid rgba(123,15,29,0.16);
       border-radius: 20px;
       padding: 22px;
     }
 
     .stack-item h5 {
       color: var(--maroon);
-      font-size: 1rem;
       margin-bottom: 8px;
-    }
-
-    .stack-item p {
-      font-size: 0.92rem;
-      line-height: 1.45;
-      color: var(--charcoal);
     }
 
     /* ========================= */
     /* PROCESSING STACK */
     /* ========================= */
-
-    .processing-section {
-      margin-top: 80px;
-    }
 
     .processing-grid {
       margin-top: 34px;
@@ -350,51 +313,22 @@
 
     .process-card {
       position: relative;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,0.72),
-          rgba(255,248,240,0.92)
-        );
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.72),
+        rgba(255,248,240,0.92)
+      );
 
-      border: 1px solid rgba(123, 15, 29, 0.14);
+      border: 1px solid rgba(123,15,29,0.14);
       border-radius: 30px;
       padding: 34px;
       overflow: hidden;
 
-      box-shadow:
-        0 20px 45px rgba(123,15,29,0.08);
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .process-card:hover {
-      transform: translateY(-6px);
-      box-shadow:
-        0 28px 60px rgba(123,15,29,0.14);
+      box-shadow: 0 20px 45px rgba(123,15,29,0.08);
     }
 
     .process-card.featured {
       border: 2px solid rgba(123,15,29,0.22);
-    }
-
-    .process-glow {
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      right: -70px;
-      top: -70px;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(123,15,29,0.08),
-          transparent 70%
-        );
-
-      pointer-events: none;
     }
 
     .process-top {
@@ -411,16 +345,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
-      background:
-        rgba(123,15,29,0.08);
-
-      border:
-        1px solid rgba(123,15,29,0.14);
-
+      background: rgba(123,15,29,0.08);
+      border: 1px solid rgba(123,15,29,0.14);
       font-size: 1.7rem;
-
-      flex-shrink: 0;
     }
 
     .process-step {
@@ -435,15 +362,11 @@
     .process-card h3 {
       font-family: "Playfair Display", serif;
       font-size: 1.5rem;
-      color: var(--charcoal);
-      line-height: 1.15;
     }
 
     .process-card p {
-      font-size: 1rem;
-      line-height: 1.72;
-      color: var(--charcoal);
-      margin-bottom: 28px;
+      line-height: 1.7;
+      margin-bottom: 24px;
     }
 
     .process-tags {
@@ -455,13 +378,8 @@
     .process-tags span {
       padding: 8px 14px;
       border-radius: 999px;
-
-      background:
-        rgba(123,15,29,0.08);
-
-      border:
-        1px solid rgba(123,15,29,0.12);
-
+      background: rgba(123,15,29,0.08);
+      border: 1px solid rgba(123,15,29,0.12);
       font-size: 0.78rem;
       font-weight: 700;
       color: var(--maroon);
@@ -493,8 +411,8 @@
     .spec-panel h3 {
       font-family: "Playfair Display", serif;
       color: var(--maroon);
-      font-size: 1.65rem;
       margin-bottom: 18px;
+      font-size: 1.65rem;
     }
 
     table {
@@ -502,36 +420,28 @@
       border-collapse: collapse;
       overflow: hidden;
       border-radius: 18px;
-      font-size: 0.94rem;
     }
 
     th {
       background: var(--maroon);
       color: var(--cream);
       text-align: left;
-      padding: 15px 16px;
-      font-weight: 800;
+      padding: 15px;
       font-size: 0.86rem;
-      letter-spacing: 0.02em;
     }
 
     td {
-      padding: 15px 16px;
-      border-bottom: 1px solid rgba(123, 15, 29, 0.14);
-      vertical-align: top;
+      padding: 15px;
+      border-bottom: 1px solid rgba(123,15,29,0.14);
       line-height: 1.45;
     }
 
     tbody tr {
-      background: rgba(255, 255, 255, 0.42);
+      background: rgba(255,255,255,0.42);
     }
 
     tbody tr:nth-child(even) {
-      background: rgba(252, 247, 231, 0.72);
-    }
-
-    td strong {
-      color: var(--maroon);
+      background: rgba(252,247,231,0.72);
     }
 
     .mini-metrics {
@@ -542,8 +452,8 @@
     }
 
     .metric {
-      background: rgba(123, 15, 29, 0.06);
-      border: 1px solid rgba(123, 15, 29, 0.14);
+      background: rgba(123,15,29,0.06);
+      border: 1px solid rgba(123,15,29,0.14);
       border-radius: 22px;
       padding: 24px;
       text-align: center;
@@ -556,21 +466,12 @@
       margin-bottom: 6px;
     }
 
-    .metric span {
-      font-size: 0.92rem;
-      color: var(--charcoal);
-      font-weight: 700;
-    }
-
-    /* ========================= */
-    /* RESPONSIVE */
-    /* ========================= */
-
     @media (max-width: 1100px) {
 
       .repo-grid,
       .stack-list,
-      .mini-metrics {
+      .mini-metrics,
+      .processing-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -579,58 +480,13 @@
       }
     }
 
-    @media (max-width: 900px) {
-
-      .processing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 760px) {
-
-      nav {
-        padding: 0 22px;
-        height: auto;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding-top: 18px;
-        padding-bottom: 12px;
-      }
-
-      .nav-links {
-        gap: 18px;
-        flex-wrap: wrap;
-        font-size: 0.9rem;
-      }
-
-      .hero {
-        padding: 70px 6vw 48px;
-      }
 
       .repo-grid,
       .stack-list,
-      .mini-metrics {
+      .mini-metrics,
+      .processing-grid {
         grid-template-columns: 1fr;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .section-heading .rule {
-        width: 100%;
-      }
-
-      table {
-        font-size: 0.86rem;
-      }
-
-      th,
-      td {
-        padding: 12px;
       }
     }
 
@@ -661,9 +517,7 @@
 
   <div class="hero-content">
 
-    <div class="eyebrow">
-      Tech
-    </div>
+    <div class="eyebrow">Tech</div>
 
     <h1>
       Technical<br>
@@ -673,8 +527,8 @@
     <div class="hero-line"></div>
 
     <p>
-      From wearable sensing to real-time feedback — a complete end-to-end
-      rehabilitation system built for accurate, low-latency monitoring.
+      From wearable sensing to real-time feedback —
+      a complete end-to-end rehabilitation system.
     </p>
 
   </div>
@@ -693,80 +547,73 @@
     </div>
 
     <p class="section-subtitle">
-      Public repositories powering the embedded firmware, Python processing bridge,
-      Flutter application, and cloud database.
+      Public repositories powering firmware,
+      machine learning, mobile development,
+      and cloud infrastructure.
     </p>
 
     <div class="repo-grid">
 
       <article class="repo-card">
-        <div>
-          <div class="repo-top">
-            <div class="repo-icon">▣</div>
-            <h3>Embedded Firmware</h3>
-          </div>
-
-          <p>
-            Arduino code for sensor acquisition, synchronization,
-            and serial streaming.
-          </p>
+        <div class="repo-top">
+          <div class="repo-icon">▣</div>
+          <h3>Embedded Firmware</h3>
         </div>
 
-        <a class="repo-link" href="https://github.com/ejzandy/sleeve" target="_blank">
+        <p>
+          Arduino firmware for synchronized IMU,
+          EMG, and PPG acquisition.
+        </p>
+
+        <a class="repo-link" href="#">
           github.com/ejzandy/sleeve
         </a>
       </article>
 
       <article class="repo-card">
-        <div>
-          <div class="repo-top">
-            <div class="repo-icon">🐍</div>
-            <h3>Data Bridge & ML</h3>
-          </div>
-
-          <p>
-            Python pipeline for filtering, feature extraction,
-            classifier inference, and WebSocket streaming.
-          </p>
+        <div class="repo-top">
+          <div class="repo-icon">🐍</div>
+          <h3>Python Bridge</h3>
         </div>
 
-        <a class="repo-link" href="https://github.com/ejzandy/bridge" target="_blank">
+        <p>
+          Real-time filtering, feature extraction,
+          ML inference, and WebSocket streaming.
+        </p>
+
+        <a class="repo-link" href="#">
           github.com/ejzandy/bridge
         </a>
       </article>
 
       <article class="repo-card">
-        <div>
-          <div class="repo-top">
-            <div class="repo-icon">◆</div>
-            <h3>Flutter Application</h3>
-          </div>
-
-          <p>
-            User interface for rehabilitation feedback,
-            rep tracking, and session visualization.
-          </p>
+        <div class="repo-top">
+          <div class="repo-icon">◆</div>
+          <h3>Flutter App</h3>
         </div>
 
-        <a class="repo-link" href="https://github.com/ejzandy/app" target="_blank">
+        <p>
+          Rehabilitation dashboard for live
+          visualization and rep tracking.
+        </p>
+
+        <a class="repo-link" href="#">
           github.com/ejzandy/app
         </a>
       </article>
 
       <article class="repo-card">
-        <div>
-          <div class="repo-top">
-            <div class="repo-icon">◩</div>
-            <h3>Backend</h3>
-          </div>
-
-          <p>
-            Supabase database, APIs,
-            authentication, and session persistence.
-          </p>
+        <div class="repo-top">
+          <div class="repo-icon">◩</div>
+          <h3>Backend</h3>
         </div>
 
-        <a class="repo-link" href="https://github.com/ejzandy/backend" target="_blank">
+        <p>
+          Supabase cloud storage,
+          authentication, and APIs.
+        </p>
+
+        <a class="repo-link" href="#">
           github.com/ejzandy/backend
         </a>
       </article>
@@ -785,58 +632,21 @@
     </div>
 
     <p class="section-subtitle">
-      End-to-end data flow from wearable sensing to cloud storage.
+      End-to-end rehabilitation data flow.
     </p>
 
     <div class="arch-card">
 
       <figure class="arch-figure">
 
-        <img src="flowdiagramarchitecture.png"
-             alt="Smart Compression Sleeve system architecture">
+        <img src="flowdiagramarchitecture.png" alt="architecture">
 
         <figcaption class="figure-caption">
-          System-level processing pipeline showing synchronized sensor acquisition,
-          filtering, machine learning classification, Flutter feedback, and cloud storage.
+          System pipeline from wearable sensing
+          to machine learning and cloud storage.
         </figcaption>
 
       </figure>
-
-      <div class="stack-list">
-
-        <div class="stack-item">
-          <h5>Hardware</h5>
-          <p>
-            Adafruit nRF52840 · Dual ICM-20948 IMUs ·
-            DFRobot EMG · DFRobot PPG · TCA9548A mux
-          </p>
-        </div>
-
-        <div class="stack-item">
-          <h5>Firmware</h5>
-          <p>
-            Arduino C++ · I²C acquisition · Analog read ·
-            USB serial streaming
-          </p>
-        </div>
-
-        <div class="stack-item">
-          <h5>Bridge & ML</h5>
-          <p>
-            Python · pyserial · pandas ·
-            scikit-learn · WebSocket streaming
-          </p>
-        </div>
-
-        <div class="stack-item">
-          <h5>App & Cloud</h5>
-          <p>
-            Flutter · Dart · real-time feedback ·
-            Supabase storage
-          </p>
-        </div>
-
-      </div>
 
     </div>
 
@@ -844,7 +654,7 @@
 
   <!-- PROCESSING STACK -->
 
-  <section class="processing-section">
+  <section>
 
     <div class="section-heading">
       <h2>Real-Time Processing Stack</h2>
@@ -852,31 +662,26 @@
     </div>
 
     <p class="section-subtitle">
-      The Smart Compression Sleeve uses a multi-layer real-time software
-      pipeline that synchronizes wearable sensor acquisition,
-      machine learning inference, and rehabilitation feedback.
+      Multi-layer software architecture enabling
+      real-time rehabilitation monitoring.
     </p>
 
     <div class="processing-grid">
 
       <article class="process-card">
 
-        <div class="process-glow"></div>
-
         <div class="process-top">
-
           <div class="process-icon">◉</div>
 
           <div>
             <span class="process-step">STEP 01</span>
             <h3>Sensor Acquisition</h3>
           </div>
-
         </div>
 
         <p>
-          Embedded firmware continuously streams synchronized IMU,
-          EMG, and PPG data through wired USB serial communication.
+          Embedded firmware streams synchronized
+          IMU, EMG, and PPG signals.
         </p>
 
         <div class="process-tags">
@@ -889,90 +694,247 @@
 
       <article class="process-card featured">
 
-        <div class="process-glow"></div>
-
         <div class="process-top">
-
           <div class="process-icon">🐍</div>
 
           <div>
             <span class="process-step">STEP 02</span>
             <h3>Python Processing Bridge</h3>
           </div>
-
         </div>
 
         <p>
-          Python performs filtering, synchronization,
-          feature extraction, Random Forest classification,
-          and rehabilitation metric generation.
+          Filtering, feature extraction,
+          Random Forest inference,
+          and metric generation.
         </p>
 
         <div class="process-tags">
           <span>Filtering</span>
-          <span>ML Inference</span>
-          <span>Feature Extraction</span>
+          <span>ML</span>
+          <span>Inference</span>
         </div>
 
       </article>
 
       <article class="process-card">
 
-        <div class="process-glow"></div>
-
         <div class="process-top">
-
           <div class="process-icon">⇄</div>
 
           <div>
             <span class="process-step">STEP 03</span>
             <h3>WebSocket Streaming</h3>
           </div>
-
         </div>
 
         <p>
-          Processed rehabilitation metrics are transmitted
-          through a low-latency WebSocket pipeline,
-          enabling live application feedback.
+          Low-latency communication
+          between Python and Flutter.
         </p>
 
         <div class="process-tags">
           <span>WebSocket</span>
-          <span>Low Latency</span>
           <span>Real-Time</span>
+          <span>Streaming</span>
         </div>
 
       </article>
 
       <article class="process-card">
 
-        <div class="process-glow"></div>
-
         <div class="process-top">
-
           <div class="process-icon">◆</div>
 
           <div>
             <span class="process-step">STEP 04</span>
-            <h3>Flutter Rehabilitation App</h3>
+            <h3>Flutter App</h3>
           </div>
-
         </div>
 
         <p>
-          The Flutter application visualizes live elbow angle,
-          repetition counting, form classification,
-          and rehabilitation analytics.
+          Live rehabilitation visualization,
+          analytics, and feedback.
         </p>
 
         <div class="process-tags">
           <span>Flutter</span>
-          <span>Live Feedback</span>
-          <span>Visualization</span>
+          <span>Analytics</span>
+          <span>Feedback</span>
         </div>
 
       </article>
+
+    </div>
+
+  </section>
+
+  <!-- ENGINEERING SPECIFICATIONS -->
+
+  <section>
+
+    <div class="section-heading">
+      <h2>Engineering Specifications</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="section-subtitle">
+      System parameters optimized for
+      real-time rehabilitation monitoring.
+    </p>
+
+    <div class="spec-grid">
+
+      <div class="spec-panel">
+
+        <h3>Core Technical Specs</h3>
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Selected Value</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>EMG Sampling</td>
+              <td><strong>1000 Hz</strong></td>
+              <td>Captures rapid muscle activation.</td>
+            </tr>
+
+            <tr>
+              <td>IMU Sampling</td>
+              <td><strong>~60 Hz</strong></td>
+              <td>Supports motion tracking.</td>
+            </tr>
+
+            <tr>
+              <td>PPG Update</td>
+              <td><strong>~1 Hz</strong></td>
+              <td>Tracks heart-rate variation.</td>
+            </tr>
+
+            <tr>
+              <td>Serial Baud</td>
+              <td><strong>230400</strong></td>
+              <td>Stable multi-sensor streaming.</td>
+            </tr>
+
+            <tr>
+              <td>Classifier</td>
+              <td><strong>Random Forest</strong></td>
+              <td>Exercise form classification.</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="spec-panel">
+
+        <h3>Signal Processing</h3>
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Signal</th>
+              <th>Filtering</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>EMG</td>
+              <td><strong>20–250 Hz bandpass</strong></td>
+              <td>Noise reduction and envelope extraction.</td>
+            </tr>
+
+            <tr>
+              <td>IMU</td>
+              <td><strong>Complementary + 4 Hz LPF</strong></td>
+              <td>Stable elbow angle estimation.</td>
+            </tr>
+
+            <tr>
+              <td>PPG</td>
+              <td><strong>EMA smoothing</strong></td>
+              <td>Heart-rate stabilization.</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="spec-panel full">
+
+        <h3>Latency Validation</h3>
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Signal</th>
+              <th>Latency</th>
+              <th>Engineering Meaning</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>IMU</td>
+              <td><strong>2–50 ms</strong></td>
+              <td>Responsive motion tracking.</td>
+            </tr>
+
+            <tr>
+              <td>EMG</td>
+              <td><strong>17–65 ms</strong></td>
+              <td>Near real-time muscle monitoring.</td>
+            </tr>
+
+            <tr>
+              <td>PPG</td>
+              <td><strong>0.5–1 s</strong></td>
+              <td>Expected optical HR delay.</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+        <div class="mini-metrics">
+
+          <div class="metric">
+            <strong>~60 Hz</strong>
+            <span>IMU Stream</span>
+          </div>
+
+          <div class="metric">
+            <strong>1000 Hz</strong>
+            <span>EMG Sampling</span>
+          </div>
+
+          <div class="metric">
+            <strong>230400</strong>
+            <span>USB Baud</span>
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
