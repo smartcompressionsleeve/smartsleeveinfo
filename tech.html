@@ -79,30 +79,19 @@
   }
 
   .arch-figure {
-    aspect-ratio: 16/9;
     background: var(--cream);
-    border: 1px dashed var(--rose);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--burgundy);
+    border: 1px solid rgba(123, 45, 63, 0.12);
     margin-top: 2rem;
+    padding: 1.5rem;
+    display: block;
   }
 
-  .arch-figure p {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.1rem;
-  }
-
-  .arch-figure small {
-    font-family: var(--sans);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--rose);
-    margin-top: 0.5rem;
+  .arch-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .stack-list {
@@ -299,11 +288,10 @@
       so individual components can be swapped without rewriting the whole stack.
     </p>
 
-    <div class="arch-figure">
-      <!-- Replace with: <img src="images/system_architecture.png" alt="System architecture" style="width:100%;"> -->
-      <p>System architecture diagram</p>
-      <small>Replace with system_architecture.png</small>
-    </div>
+    <figure class="arch-figure">
+      <img src="images/system_architecture.png"
+           alt="System architecture: dual ICM-20948 IMUs on a TCA9548A I²C multiplexer (CH2 upper arm, CH5 forearm), DFRobot Gravity EMG on analog pin A1, DFRobot Gravity PPG on analog pin A0, all read by an Adafruit Feather nRF52840 and streamed over USB serial to a Python bridge running per-exercise Random Forest classifiers." />
+    </figure>
 
     <div class="stack-list">
       <div class="stack-item">
