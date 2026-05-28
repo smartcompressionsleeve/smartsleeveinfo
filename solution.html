@@ -161,7 +161,7 @@
     font-size: 1rem;
   }
 
-  /* Form factor / layers */
+  /* Form factor / pods */
   .layers {
     background: var(--cream);
   }
@@ -215,6 +215,7 @@
     font-size: 0.85rem;
     color: var(--burgundy);
     font-weight: 500;
+    text-align: right;
   }
 
   @media (max-width: 900px) {
@@ -263,7 +264,7 @@
     <div class="section-label">The Device</div>
     <h1 class="fade-up">Multi-sensor fusion in a <em>soft, wearable</em> form.</h1>
     <p class="fade-up" style="animation-delay: 0.15s;">
-      Six sensors, three fabric layers, one Random Forest. Designed for the
+      Six sensors, two pods, one Random Forest. Designed for the
       patient's living room — not the lab bench.
     </p>
   </div>
@@ -285,7 +286,7 @@
           <div class="feature-number">i.</div>
           <div class="feature-content">
             <h4>Comfortable for 30+ minute sessions</h4>
-            <p>Three-layer nylon-spandex with TPU lattice for sensor mounting and adjustable Velcro closure.</p>
+            <p>A single-layer nylon-spandex pull-on sleeve carries two sensor pods mounted with adjustable straps — light, breathable, and easy to put on.</p>
           </div>
         </div>
         <div class="feature">
@@ -310,7 +311,6 @@
         <svg viewBox="0 0 200 240" fill="none" style="width: 60%; max-width: 240px;">
           <path d="M70 30 Q70 20 80 20 L120 20 Q130 20 130 30 L130 215 Q130 225 120 225 L80 225 Q70 225 70 215 Z" stroke="#7B2D3F" stroke-width="2" fill="#FAEFEF"/>
           <rect x="85" y="60" width="30" height="22" rx="3" fill="#7B2D3F"/>
-          <rect x="85" y="105" width="30" height="22" rx="3" fill="#7B2D3F"/>
           <rect x="85" y="155" width="30" height="22" rx="3" fill="#7B2D3F"/>
         </svg>
         <p>Device exploded view</p>
@@ -390,41 +390,41 @@
   <div class="layers-container">
     <div>
       <div class="section-label">Form Factor</div>
-      <h2 class="section-title">Three layers, <em>one wearable.</em></h2>
+      <h2 class="section-title">One sleeve, <em>two pods.</em></h2>
       <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal);">
-        The compression sleeve isn't a single piece of fabric — it's a layered composite
-        designed to maintain sensor position, distribute pressure, and stay comfortable
-        across rehabilitation sessions.
+        The device is a single-layer nylon-spandex pull-on compression sleeve that carries
+        two strap-mounted sensor pods — one on the upper arm, one on the forearm. Keeping
+        the electronics in self-contained pods means the sleeve itself stays light,
+        breathable, and easy to wash.
       </p>
 
       <div class="layer-list">
         <div class="layer-item">
           <div class="layer-num">i.</div>
-          <div class="layer-name">Inner Nylon-Spandex<small>Skin contact layer</small></div>
-          <div class="layer-thickness">6% comp.</div>
+          <div class="layer-name">Nylon-Spandex Sleeve<small>Single-layer, pull-on fit</small></div>
+          <div class="layer-thickness">base layer</div>
         </div>
         <div class="layer-item">
           <div class="layer-num">ii.</div>
-          <div class="layer-name">TPU Lattice<small>Sensor mounting structure</small></div>
-          <div class="layer-thickness">0.75 in</div>
+          <div class="layer-name">Big Pod — Upper Arm<small>Feather MCU, I²C mux, EMG, IMU</small></div>
+          <div class="layer-thickness">strap-mounted</div>
         </div>
         <div class="layer-item">
           <div class="layer-num">iii.</div>
-          <div class="layer-name">Outer Nylon-Spandex<small>Adjustable Velcro closure</small></div>
-          <div class="layer-thickness">8% comp.</div>
+          <div class="layer-name">Small Pod — Forearm<small>Second IMU, PPG sensor</small></div>
+          <div class="layer-thickness">strap-mounted</div>
         </div>
       </div>
     </div>
 
     <div class="device-image">
       <div class="device-image-placeholder">
-        <svg viewBox="0 0 200 200" fill="none" style="width: 60%;">
-          <rect x="40" y="40" width="120" height="20" fill="#F4E0E0" stroke="#7B2D3F"/>
-          <rect x="40" y="65" width="120" height="40" fill="#FAEFEF" stroke="#7B2D3F" stroke-dasharray="3,3"/>
-          <rect x="40" y="110" width="120" height="20" fill="#F4E0E0" stroke="#7B2D3F"/>
-          <text x="100" y="155" text-anchor="middle" font-family="serif" font-style="italic" font-size="14" fill="#7B2D3F">Three-layer composite</text>
+        <svg viewBox="0 0 200 240" fill="none" style="width: 60%; max-width: 240px;">
+          <path d="M70 30 Q70 20 80 20 L120 20 Q130 20 130 30 L130 215 Q130 225 120 225 L80 225 Q70 225 70 215 Z" stroke="#7B2D3F" stroke-width="2" fill="#FAEFEF"/>
+          <rect x="80" y="55" width="40" height="38" rx="6" fill="#7B2D3F"/>
+          <rect x="83" y="150" width="34" height="30" rx="6" fill="#B76E79"/>
         </svg>
-        <p>Layer cross-section</p>
+        <p>Sleeve with upper-arm and forearm pods</p>
         <small>Replace with image</small>
       </div>
     </div>
