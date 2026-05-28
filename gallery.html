@@ -66,24 +66,23 @@
     grid-row: span 2;
   }
 
-  /* Other gallery grids */
+  /* Testing grid */
   .grid-three {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
+  /* Clean 2x2 build process grid */
   .grid-mosaic {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 200px 200px;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
-  .grid-mosaic .photo-tile:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-  .grid-mosaic .photo-tile:nth-child(2) { grid-column: span 2; }
-  .grid-mosaic .photo-tile:nth-child(3) { grid-column: span 1; }
-  .grid-mosaic .photo-tile:nth-child(4) { grid-column: span 1; }
+  .grid-mosaic .photo-tile {
+    aspect-ratio: 4/3;
+  }
 
   .photo-tile {
     background: var(--blush-soft);
@@ -221,32 +220,13 @@
     }
 
     .grid-mosaic {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-    }
-
-    .grid-mosaic .photo-tile:nth-child(1) {
-      grid-column: span 2;
-      grid-row: span 1;
-    }
-
-    .grid-mosaic .photo-tile:nth-child(2) {
-      grid-column: span 2;
-    }
-
-    .grid-mosaic .photo-tile:nth-child(3),
-    .grid-mosaic .photo-tile:nth-child(4) {
-      grid-column: span 1;
+      grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: 600px) {
     .grid-three {
       grid-template-columns: 1fr;
-    }
-
-    .grid-mosaic .photo-tile {
-      grid-column: span 2 !important;
     }
   }
 </style>
@@ -339,26 +319,31 @@
     </div>
   </div>
 
-<!-- BUILD PROCESS -->
-<div class="gallery-section">
-  <div class="label">Build Process</div>
-  <h3>Iteration in <em>full color.</em></h3>
-  <p class="description">Soldering, sleeve fabrication, fabric layering, and prototyping.</p>
+  <!-- BUILD PROCESS -->
+  <div class="gallery-section">
+    <div class="label">Build Process</div>
+    <h3>Iteration in <em>full color.</em></h3>
+    <p class="description">Soldering, sleeve fabrication, fabric layering, and prototyping.</p>
 
-  <div class="grid-mosaic">
-    <div class="photo-tile">
-      <img src="./unnamed%20%281%29.jpg" alt="Circuit soldering in progress">
-    </div>
+    <div class="grid-mosaic">
+      <div class="photo-tile">
+        <img src="unnamed%20%281%29.jpg" alt="Circuit soldering in progress">
+      </div>
 
-    <div class="photo-tile">
-      <img src="./Sleeve.jpg" alt="Sleeve fabrication">
-    </div>
+      <div class="photo-tile">
+        <img src="Sleeve.jpg" alt="Sleeve fabrication">
+      </div>
 
-    <div class="photo-tile">
-      <img src="./Prototyping.jpg" alt="Team working session">
+      <div class="photo-tile">
+        <p>Fabric layering</p>
+        <small>Replace</small>
+      </div>
+
+      <div class="photo-tile">
+        <img src="Prototyping.jpg" alt="Team working session">
+      </div>
     </div>
   </div>
-</div>
 
   <!-- TESTING -->
   <div class="gallery-section">
