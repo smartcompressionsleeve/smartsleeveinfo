@@ -54,10 +54,15 @@
     margin-bottom: 2.5rem;
   }
 
-  .grid-two {
+  /* Original device layout: keeps hero space + two right-side images */
+  .grid-two-asymmetric {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1.6fr 1fr;
     gap: 1.5rem;
+  }
+
+  .grid-two-asymmetric .photo-tile.large {
+    grid-row: span 2;
   }
 
   .grid-three {
@@ -69,7 +74,7 @@
   .grid-mosaic {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 260px 260px;
+    grid-template-rows: 200px 200px;
     gap: 1.5rem;
   }
 
@@ -113,6 +118,10 @@
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .photo-tile.tall {
+    aspect-ratio: 3/4;
   }
 
   .photo-tile p {
@@ -202,12 +211,16 @@
   }
 
   @media (max-width: 900px) {
-    .grid-two {
+    .grid-three {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-two-asymmetric {
       grid-template-columns: 1fr;
     }
 
-    .grid-three {
-      grid-template-columns: repeat(2, 1fr);
+    .grid-two-asymmetric .photo-tile.large {
+      grid-row: span 1;
     }
 
     .grid-mosaic {
@@ -313,13 +326,18 @@
     <h3>Finished <em>form factor.</em></h3>
     <p class="description">Final assembled sleeve, sensor pods, and worn shots.</p>
 
-    <div class="grid-two">
-      <div class="photo-tile">
-        <img src="unnamed.jpg" alt="Sensor pod close-up">
+    <div class="grid-two-asymmetric">
+      <div class="photo-tile large tall">
+        <p>Hero device shot</p>
+        <small>Replace</small>
       </div>
 
       <div class="photo-tile">
-        <img src="IMG_5027.jpeg" alt="Worn smart compression sleeve in use">
+        <img src="./unnamed.jpg" alt="Sensor pod close-up">
+      </div>
+
+      <div class="photo-tile">
+        <img src="./IMG_5027.jpeg" alt="Worn smart compression sleeve in use">
       </div>
     </div>
   </div>
@@ -332,7 +350,7 @@
 
     <div class="grid-mosaic">
       <div class="photo-tile">
-        <img src="IMG_4409.jpg" alt="Circuit soldering in progress">
+        <img src="./IMG_4409.jpg" alt="Circuit soldering in progress">
       </div>
 
       <div class="photo-tile">
