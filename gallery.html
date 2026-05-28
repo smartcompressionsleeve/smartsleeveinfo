@@ -94,41 +94,50 @@
   transition: transform 0.4s ease;
 }
 
+.photo-tile:hover {
+  transform: scale(1.02);
+}
+
 .photo-tile img {
   width: 100%;
   height: 100%;
   object-fit: contain !important;
 }
 
+/* Keeps the worn/in-use image wider */
 .wide-photo {
   aspect-ratio: 16/9 !important;
 }
 
-.pod-photo img {
-  object-fit: cover !important;
+/* Makes the pod close-up fill the box nicely */
+.pod-photo {
+  background-image: url("unnamed.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-  }
 
-  .photo-tile:hover { transform: scale(1.02); }
+/* Keeps the tall hero tile tall */
+.photo-tile.tall {
+  aspect-ratio: 3/4;
+}
 
-  .photo-tile.tall { aspect-ratio: 3/4; }
+.photo-tile p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
 
-  .photo-tile p {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1rem;
-    padding: 1rem;
-    text-align: center;
-  }
-
-  .photo-tile small {
-    font-family: var(--sans);
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--rose);
-    margin-top: 0.3rem;
-  }
+.photo-tile small {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--rose);
+  margin-top: 0.3rem;
+}
 
   /* Video block */
   .video-block {
@@ -288,9 +297,7 @@
     <small>Replace</small>
   </div>
 
-  <div class="photo-tile pod-photo">
-  <img src="unnamed.jpg" alt="Sensor pod close-up">
-</div>
+  <div class="photo-tile pod-photo"></div>
 
   <div class="photo-tile wide-photo">
     <img src="IMG_5027.jpeg" alt="Worn smart compression sleeve in use">
