@@ -11,13 +11,17 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    .results-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 3rem 2rem;
+    /* Alternating section backgrounds for rhythm */
+    .results-section.warm {
+      background: var(--cream-warm);
+      border-top: 1px solid rgba(123, 45, 63, 0.1);
+      border-bottom: 1px solid rgba(123, 45, 63, 0.1);
     }
 
-    .results-section { margin-bottom: 5rem; }
+    .results-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
     .results-section h2 {
       font-family: var(--serif);
@@ -25,6 +29,7 @@
       font-weight: 500;
       color: var(--burgundy-deep);
       margin-bottom: 1rem;
+      letter-spacing: -0.01em;
     }
 
     .results-section h2 em {
@@ -33,12 +38,12 @@
       font-weight: 400;
     }
 
-    .results-section > p {
-      max-width: 800px;
-      line-height: 1.8;
+    .results-section > .results-inner > p {
+      max-width: 50rem;
+      line-height: 1.7;
       color: var(--charcoal);
-      margin-bottom: 2rem;
-      font-size: 1.02rem;
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
     }
 
     .results-image {
@@ -48,17 +53,18 @@
       margin: 0 auto;
       border: 1px solid rgba(123, 45, 63, 0.12);
       box-shadow: 0 20px 40px -15px rgba(74, 15, 24, 0.15);
+      background: var(--cream);
     }
 
     .figure-caption {
       text-align: center;
-      margin: 1rem auto 0;
+      margin: 1.2rem auto 0;
       color: var(--rose);
       font-family: var(--serif);
       font-style: italic;
-      font-size: 1rem;
+      font-size: 0.98rem;
       line-height: 1.6;
-      max-width: 850px;
+      max-width: 50rem;
     }
 
     .figure-caption strong {
@@ -66,16 +72,17 @@
       color: var(--burgundy-deep);
     }
 
+    /* Stat cards aligned to design system */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1.5rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .stat-card {
       background: var(--cream);
-      padding: 2rem;
+      padding: 2rem 1.5rem;
       border-left: 3px solid var(--burgundy);
       text-align: center;
     }
@@ -86,13 +93,14 @@
       color: var(--burgundy-deep);
       margin: 0;
       font-weight: 600;
+      line-height: 1;
     }
 
     .stat-card p {
-      margin: 0.5rem 0 0;
+      margin: 0.6rem 0 0;
       color: var(--rose);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
   </style>
@@ -144,11 +152,11 @@
     </div>
   </section>
 
-  <main class="results-wrapper">
-
-    <!-- SENSOR VALIDATION -->
-    <section class="results-section" id="validation">
-      <h2>Sensor <em>validation.</em></h2>
+  <!-- SENSOR VALIDATION (cream) -->
+  <section class="results-section" id="validation">
+    <div class="results-inner">
+      <div class="section-label">Sensor Validation</div>
+      <h2>Three sensors, <em>time-aligned.</em></h2>
       <p>
         Full-system synchronized validation demonstrating simultaneous acquisition
         of IMU, EMG, and PPG signals during bicep curl motion. The system maintained
@@ -163,10 +171,13 @@
         Synchronized IMU, EMG, and PPG sensor outputs collected during real-time
         exercise testing, demonstrating stable acquisition and full-circuit validation.
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- IMU MOTION DYNAMICS -->
-    <section class="results-section">
+  <!-- IMU MOTION DYNAMICS (cream-warm) -->
+  <section class="results-section warm">
+    <div class="results-inner">
+      <div class="section-label">Motion Dynamics</div>
       <h2>IMU motion <em>dynamics.</em></h2>
       <p>
         Relative elbow angle and forearm gyroscope velocity were extracted from
@@ -186,11 +197,14 @@
         Good form shows smoother, repeatable motion; bad form shows the irregular
         patterns associated with swinging.
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CLASSIFIER VALIDATION -->
-    <section class="results-section" id="classifier">
-      <h2>Classifier <em>validation.</em></h2>
+  <!-- CLASSIFIER VALIDATION (cream) -->
+  <section class="results-section" id="classifier">
+    <div class="results-inner">
+      <div class="section-label">Classifier</div>
+      <h2>Four classes, <em>cleanly separated.</em></h2>
       <p>
         The form classifier is a Random Forest trained on per-rep features derived
         from the IMU signals (elbow-angle and gyroscope kinematics). EMG and PPG are
@@ -206,21 +220,24 @@
         Confusion matrix for the Random Forest classifier, showing 96.6% ± 3.5%
         overall accuracy across four exercise form classes.
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PERFORMANCE STATS -->
-    <section class="results-section">
-      <h2>Performance <em>metrics.</em></h2>
+  <!-- PERFORMANCE METRICS (cream-warm) -->
+  <section class="results-section warm">
+    <div class="results-inner">
+      <div class="section-label">Performance Metrics</div>
+      <h2>By the <em>numbers.</em></h2>
+
       <div class="stats-grid">
         <div class="stat-card"><h3>96.6%</h3><p>Classification Accuracy</p></div>
         <div class="stat-card"><h3>±3.5%</h3><p>Std. Deviation</p></div>
-        <div class="stat-card"><h3>417</h3><p>Labeled Repetitions</p></div>
+        <div class="stat-card"><h3>417</h3><p>Labeled Reps</p></div>
         <div class="stat-card"><h3>59</h3><p>Total Trials</p></div>
         <div class="stat-card"><h3>4</h3><p>Form Classes</p></div>
       </div>
-    </section>
-
-  </main>
+    </div>
+  </section>
 
   <footer>
     <div class="footer-content">
