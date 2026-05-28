@@ -1,946 +1,695 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tech | Smart Compression Sleeve</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tech — Smart Compression Sleeve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Code repos section */
+  .repos { max-width: 1100px; margin: 0 auto; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  .repo-card {
+    background: var(--cream);
+    border: 1px solid rgba(123, 45, 63, 0.12);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
 
-  <style>
+  .repo-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--burgundy);
+    box-shadow: 0 15px 35px -10px rgba(74, 15, 24, 0.18);
+  }
 
-    :root {
-      --cream: #fcf7e7;
-      --cream-soft: #fffaf0;
-      --maroon: #7b0f1d;
-      --maroon-dark: #5f0a15;
-      --rose: #ead0c6;
-      --charcoal: #1f1f1f;
-      --muted: #6f625d;
-      --card: rgba(255, 250, 240, 0.78);
-      --border: rgba(123, 15, 29, 0.22);
-      --shadow: 0 18px 45px rgba(123, 15, 29, 0.12);
+  .repo-card .lang {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--rose);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .repo-card h4 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--burgundy-deep);
+    margin-bottom: 0.5rem;
+  }
+
+  .repo-card p {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .repo-card .link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--burgundy);
+    word-break: break-all;
+  }
+
+  /* Architecture section */
+  .architecture {
+    background: var(--cream-warm);
+    border-top: 1px solid rgba(123, 45, 63, 0.1);
+    border-bottom: 1px solid rgba(123, 45, 63, 0.1);
+  }
+
+  .arch-figure {
+    background: var(--cream);
+    border: 1px solid rgba(123, 45, 63, 0.12);
+    margin-top: 2rem;
+    padding: 1.5rem;
+    display: block;
+  }
+
+  .arch-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .arch-figure figcaption {
+    margin-top: 1rem;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--rose);
+  }
+
+  .stack-list {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stack-item {
+    background: var(--cream);
+    padding: 1.5rem;
+    border-left: 3px solid var(--burgundy);
+  }
+
+  .stack-item h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.5rem;
+  }
+
+  .stack-item p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--burgundy-deep);
+    font-weight: 500;
+  }
+
+  /* Processing stack steps */
+  .process-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .process-card {
+    background: var(--cream);
+    border: 1px solid rgba(123, 45, 63, 0.12);
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .process-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px -10px rgba(74, 15, 24, 0.18);
+  }
+
+  .process-card.featured {
+    border-left: 3px solid var(--burgundy);
+  }
+
+  .process-step {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  .process-card h4 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--burgundy-deep);
+    margin-bottom: 0.8rem;
+  }
+
+  .process-card p {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .process-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .process-tags span {
+    padding: 0.35rem 0.8rem;
+    background: var(--blush-soft);
+    border: 1px solid rgba(123, 45, 63, 0.15);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--burgundy);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Specs tables */
+  .specs {
+    background: var(--cream-warm);
+    border-top: 1px solid rgba(123, 45, 63, 0.1);
+  }
+
+  .spec-grid {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .spec-panel {
+    background: var(--cream);
+    border: 1px solid rgba(123, 45, 63, 0.12);
+    padding: 2rem;
+  }
+
+  .spec-panel.full { grid-column: 1 / -1; }
+
+  .spec-panel h4 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--burgundy-deep);
+    margin-bottom: 1.2rem;
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .spec-table th {
+    background: var(--burgundy);
+    color: var(--cream);
+    text-align: left;
+    padding: 0.8rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .spec-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(123, 45, 63, 0.1);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--charcoal);
+  }
+
+  .spec-table tbody tr:last-child td { border-bottom: none; }
+
+  .spec-table td strong {
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--burgundy-deep);
+  }
+
+  .spec-note {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--rose);
+    line-height: 1.5;
+  }
+
+  .mini-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .metric {
+    background: var(--blush-soft);
+    border: 1px solid rgba(123, 45, 63, 0.14);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .metric strong {
+    display: block;
+    font-family: var(--serif);
+    color: var(--burgundy-deep);
+    font-size: 1.7rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .metric span {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rose);
+  }
+
+  /* Hardware BOM */
+  .hardware-table {
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    background: var(--cream);
+    border: 1px solid rgba(123, 45, 63, 0.12);
+  }
+
+  .bom-row {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 80px 100px;
+    gap: 1.5rem;
+    padding: 1.2rem 2rem;
+    align-items: center;
+    border-bottom: 1px solid rgba(123, 45, 63, 0.08);
+  }
+
+  .bom-row:last-child { border-bottom: none; }
+
+  .bom-row.header {
+    background: var(--burgundy);
+    color: var(--cream);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .bom-row.header > div { color: var(--cream); }
+
+  .bom-row .name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--burgundy-deep);
+  }
+
+  .bom-row .role { font-size: 0.88rem; color: var(--charcoal); }
+
+  .bom-row .qty {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--burgundy);
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .bom-row .source { font-size: 0.85rem; color: var(--rose); }
+
+  @media (max-width: 900px) {
+    .process-grid, .spec-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 700px) {
+    .stack-list { grid-template-columns: 1fr; }
+    .mini-metrics { grid-template-columns: 1fr; }
+    .bom-row {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      padding: 1rem 1.5rem;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background: var(--cream);
-      color: var(--charcoal);
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 42px;
-      background: rgba(252, 247, 231, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(123, 15, 29, 0.12);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: "Playfair Display", serif;
-      font-size: 1.55rem;
-      font-weight: 700;
-      color: var(--maroon);
-    }
-
-    .brand span {
-      font-family: "Inter", sans-serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--charcoal);
-      opacity: 0.85;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 38px;
-      list-style: none;
-      font-weight: 700;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding: 26px 0;
-    }
-
-    .nav-links a.active {
-      color: var(--maroon);
-    }
-
-    .nav-links a.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 4px;
-      background: var(--maroon);
-    }
-
-    .hero {
-      position: relative;
-      min-height: 560px;
-      padding: 90px 7vw 60px;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(252,247,231,0.98) 0%,
-          rgba(252,247,231,0.86) 34%,
-          rgba(252,247,231,0.42) 100%
-        ),
-        url("biceps-force-diagram.png");
-
-      background-size: cover;
-      background-position: center right;
-      opacity: 0.72;
-      z-index: -2;
-    }
-
-    .hero-content {
-      max-width: 610px;
-    }
-
-    .eyebrow {
-      color: var(--maroon);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.78rem;
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-family: "Playfair Display", serif;
-      color: var(--maroon);
-      font-size: clamp(3.4rem, 6vw, 5.5rem);
-      line-height: 0.98;
-      margin-bottom: 30px;
-    }
-
-    .hero-line {
-      width: 220px;
-      height: 2px;
-      background: var(--maroon);
-      margin-bottom: 32px;
-    }
-
-    .hero p {
-      font-size: 1.35rem;
-      line-height: 1.55;
-      font-weight: 600;
-      max-width: 560px;
-    }
-
-    main {
-      padding: 0 7vw 90px;
-    }
-
-    section {
-      margin-top: 58px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      margin-bottom: 10px;
-    }
-
-    .section-heading h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 3vw, 2.75rem);
-      color: var(--maroon);
-      white-space: nowrap;
-    }
-
-    .section-heading .rule {
-      flex: 1;
-      height: 1px;
-      background: var(--maroon);
-      opacity: 0.65;
-    }
-
-    .section-subtitle {
-      color: var(--charcoal);
-      font-size: 1.05rem;
-      line-height: 1.65;
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    /* ========================= */
-    /* REPOSITORIES */
-    /* ========================= */
-
-    .repo-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .repo-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-      transition: 0.25s ease;
-    }
-
-    .repo-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .repo-top {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .repo-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(123, 15, 29, 0.08);
-      border: 1px solid rgba(123, 15, 29, 0.12);
-      font-size: 1.7rem;
-    }
-
-    .repo-card h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.35rem;
-    }
-
-    .repo-card p {
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    .repo-link {
-      color: var(--maroon);
-      font-weight: 800;
-    }
-
-    /* ========================= */
-    /* ARCHITECTURE */
-    /* ========================= */
-
-    .arch-card {
-      background: rgba(255, 250, 240, 0.72);
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      padding: 34px;
-    }
-
-    .arch-figure img {
-      width: 100%;
-      border-radius: 22px;
-      display: block;
-    }
-
-    .figure-caption {
-      margin-top: 14px;
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    .stack-list {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .stack-item {
-      background: rgba(255,255,255,0.48);
-      border: 1px solid rgba(123,15,29,0.16);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .stack-item h5 {
-      color: var(--maroon);
-      margin-bottom: 8px;
-    }
-
-    /* ========================= */
-    /* PROCESSING STACK */
-    /* ========================= */
-
-    .processing-grid {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
-
-    .process-card {
-      position: relative;
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,0.72),
-        rgba(255,248,240,0.92)
-      );
-
-      border: 1px solid rgba(123,15,29,0.14);
-      border-radius: 30px;
-      padding: 34px;
-      overflow: hidden;
-
-      box-shadow: 0 20px 45px rgba(123,15,29,0.08);
-    }
-
-    .process-card.featured {
-      border: 2px solid rgba(123,15,29,0.22);
-    }
-
-    .process-top {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 22px;
-    }
-
-    .process-icon {
-      width: 68px;
-      height: 68px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(123,15,29,0.08);
-      border: 1px solid rgba(123,15,29,0.14);
-      font-size: 1.7rem;
-    }
-
-    .process-step {
-      display: block;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      font-weight: 800;
-      color: var(--maroon);
-      margin-bottom: 6px;
-    }
-
-    .process-card h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
-    }
-
-    .process-card p {
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-
-    .process-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .process-tags span {
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(123,15,29,0.08);
-      border: 1px solid rgba(123,15,29,0.12);
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--maroon);
-    }
-
-    /* ========================= */
-    /* SPECS */
-    /* ========================= */
-
-    .spec-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 26px;
-      align-items: start;
-    }
-
-    .spec-panel {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .spec-panel.full {
-      grid-column: 1 / -1;
-    }
-
-    .spec-panel h3 {
-      font-family: "Playfair Display", serif;
-      color: var(--maroon);
-      margin-bottom: 18px;
-      font-size: 1.65rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 18px;
-    }
-
-    th {
-      background: var(--maroon);
-      color: var(--cream);
-      text-align: left;
-      padding: 15px;
-      font-size: 0.86rem;
-    }
-
-    td {
-      padding: 15px;
-      border-bottom: 1px solid rgba(123,15,29,0.14);
-      line-height: 1.45;
-    }
-
-    tbody tr {
-      background: rgba(255,255,255,0.42);
-    }
-
-    tbody tr:nth-child(even) {
-      background: rgba(252,247,231,0.72);
-    }
-
-    .mini-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 26px;
-    }
-
-    .metric {
-      background: rgba(123,15,29,0.06);
-      border: 1px solid rgba(123,15,29,0.14);
-      border-radius: 22px;
-      padding: 24px;
-      text-align: center;
-    }
-
-    .metric strong {
-      display: block;
-      color: var(--maroon);
-      font-size: 1.8rem;
-      margin-bottom: 6px;
-    }
-
-    @media (max-width: 1100px) {
-
-      .repo-grid,
-      .stack-list,
-      .mini-metrics,
-      .processing-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .spec-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-
-      .repo-grid,
-      .stack-list,
-      .mini-metrics,
-      .processing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-  </style>
-
+    .bom-row.header { display: none; }
+    .bom-row .qty, .bom-row .source { text-align: left; }
+    .bom-row .qty::before { content: 'Qty: '; color: var(--rose); }
+    .bom-row .source::before { content: 'Source: '; color: var(--burgundy); font-weight: 500; }
+  }
+</style>
 </head>
-
 <body>
 
-<nav>
-
-  <a href="index.html" class="brand">
-    Smart Compression Sleeve
-    <span>· Team R</span>
-  </a>
-
+<nav class="site-nav">
+  <a href="index.html" class="brand">Smart Compression Sleeve <span>·</span> Team R</a>
+  <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="problem.html">The Project</a></li>
-    <li><a href="results.html">Results</a></li>
+    <li class="has-dropdown">
+      <a href="solution.html">The Project</a>
+      <ul class="dropdown">
+        <li><a href="problem.html">The Problem<small>The unmet need</small></a></li>
+        <li><a href="solution.html">The Device<small>Sensors & form factor</small></a></li>
+        <li><a href="gallery.html">Gallery<small>Build photos & demos</small></a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="results.html">Results</a>
+      <ul class="dropdown">
+        <li><a href="results.html#validation">Sensor Validation<small>IMU, EMG, PPG traces</small></a></li>
+        <li><a href="results.html#classifier">Classifier<small>96.6% accuracy + matrix</small></a></li>
+      </ul>
+    </li>
     <li><a href="team.html">Team</a></li>
-    <li><a href="tech.html" class="active">Tech</a></li>
+    <li class="has-dropdown active">
+      <a href="tech.html">Tech</a>
+      <ul class="dropdown">
+        <li><a href="#code">Code & Repos<small>GitHub links</small></a></li>
+        <li><a href="#architecture">Architecture<small>System diagram</small></a></li>
+        <li><a href="#processing">Processing Stack<small>Real-time pipeline</small></a></li>
+        <li><a href="#specs">Specifications<small>Engineering specs</small></a></li>
+        <li><a href="#hardware">Hardware<small>Bill of materials</small></a></li>
+      </ul>
+    </li>
   </ul>
-
 </nav>
 
-<header class="hero">
-
-  <div class="hero-content">
-
-    <div class="eyebrow">Tech</div>
-
-    <h1>
-      Technical<br>
-      Implementation
-    </h1>
-
-    <div class="hero-line"></div>
-
-    <p>
-      From wearable sensing to real-time feedback —
-      a complete end-to-end rehabilitation system.
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Tech</div>
+    <h1 class="fade-up">The stack, <em>laid bare.</em></h1>
+    <p class="fade-up" style="animation-delay: 0.15s;">
+      From wearable sensing to real-time feedback — open repositories, the system
+      architecture, the processing pipeline, and the full engineering specs.
     </p>
-
   </div>
+</section>
 
-</header>
-
-<main>
-
-  <!-- REPOSITORIES -->
-
-  <section>
-
-    <div class="section-heading">
-      <h2>Code & Repositories</h2>
-      <div class="rule"></div>
-    </div>
-
-    <p class="section-subtitle">
-      Public repositories powering firmware,
-      machine learning, mobile development,
-      and cloud infrastructure.
+<!-- CODE REPOS -->
+<section id="code">
+  <div class="repos">
+    <div class="section-label">Code & Repositories</div>
+    <h2 class="section-title">Open code, <em>open hardware.</em></h2>
+    <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
+      All project code is open on GitHub. The firmware, the Python bridge, the classifier
+      training pipeline, and the Flutter companion app each live in their own repo.
     </p>
 
     <div class="repo-grid">
+      <a href="#" class="repo-card">
+        <div class="lang">C++ · Arduino</div>
+        <h4>Sleeve Firmware</h4>
+        <p>Adafruit Feather nRF52840 firmware: I²C mux drivers, IMU/EMG/PPG sampling loop, USB serial streaming.</p>
+        <div class="link">github.com/team-r/sleeve-firmware</div>
+      </a>
 
-      <article class="repo-card">
-        <div class="repo-top">
-          <div class="repo-icon">▣</div>
-          <h3>Embedded Firmware</h3>
-        </div>
+      <a href="#" class="repo-card">
+        <div class="lang">Python · scikit-learn</div>
+        <h4>ML Pipeline</h4>
+        <p>Feature extraction, Random Forest training, GroupKFold cross-validation, and confusion matrix generation.</p>
+        <div class="link">github.com/team-r/sleeve-ml</div>
+      </a>
 
-        <p>
-          Arduino firmware for synchronized IMU,
-          EMG, and PPG acquisition.
-        </p>
+      <a href="#" class="repo-card">
+        <div class="lang">Python · WebSockets</div>
+        <h4>Serial Bridge</h4>
+        <p>Reads serial packets from the MCU and broadcasts to the Flutter app over WebSocket for real-time inference.</p>
+        <div class="link">github.com/team-r/sleeve-bridge</div>
+      </a>
 
-        <a class="repo-link" href="#">
-          github.com/ejzandy/sleeve
-        </a>
-      </article>
-
-      <article class="repo-card">
-        <div class="repo-top">
-          <div class="repo-icon">🐍</div>
-          <h3>Python Bridge</h3>
-        </div>
-
-        <p>
-          Real-time filtering, feature extraction,
-          ML inference, and WebSocket streaming.
-        </p>
-
-        <a class="repo-link" href="#">
-          github.com/ejzandy/bridge
-        </a>
-      </article>
-
-      <article class="repo-card">
-        <div class="repo-top">
-          <div class="repo-icon">◆</div>
-          <h3>Flutter App</h3>
-        </div>
-
-        <p>
-          Rehabilitation dashboard for live
-          visualization and rep tracking.
-        </p>
-
-        <a class="repo-link" href="#">
-          github.com/ejzandy/app
-        </a>
-      </article>
-
-      <article class="repo-card">
-        <div class="repo-top">
-          <div class="repo-icon">◩</div>
-          <h3>Backend</h3>
-        </div>
-
-        <p>
-          Supabase cloud storage,
-          authentication, and APIs.
-        </p>
-
-        <a class="repo-link" href="#">
-          github.com/ejzandy/backend
-        </a>
-      </article>
-
+      <a href="#" class="repo-card">
+        <div class="lang">Dart · Flutter</div>
+        <h4>Companion App</h4>
+        <p>iOS Flutter app: live form feedback, rep counting, session history backed by Supabase.</p>
+        <div class="link">github.com/team-r/sleeve-app</div>
+      </a>
     </div>
+  </div>
+</section>
 
-  </section>
-
-  <!-- ARCHITECTURE -->
-
-  <section>
-
-    <div class="section-heading">
-      <h2>System Architecture</h2>
-      <div class="rule"></div>
-    </div>
-
-    <p class="section-subtitle">
-      End-to-end rehabilitation data flow.
+<!-- ARCHITECTURE -->
+<section id="architecture" class="architecture">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">System Architecture</div>
+    <h2 class="section-title">From skin to feedback, <em>in six steps.</em></h2>
+    <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
+      The full data path from raw sensor to mobile UI. Each layer is loosely coupled
+      so individual components can be swapped without rewriting the whole stack.
     </p>
 
-    <div class="arch-card">
+    <figure class="arch-figure">
+      <img src="system_architecture.png"
+           alt="System architecture: dual ICM-20948 IMUs on a TCA9548A I²C multiplexer (CH2 upper arm, CH5 forearm), DFRobot Gravity EMG on analog pin A1, DFRobot Gravity PPG on analog pin A0, all read by an Adafruit Feather nRF52840 and streamed over USB serial to a Python bridge running per-exercise Random Forest classifiers." />
+      <figcaption>System pipeline from wearable sensing to machine learning and cloud storage.</figcaption>
+    </figure>
 
-      <figure class="arch-figure">
-
-        <img src="flowdiagramarchitecture.png" alt="architecture">
-
-        <figcaption class="figure-caption">
-          System pipeline from wearable sensing
-          to machine learning and cloud storage.
-        </figcaption>
-
-      </figure>
-
+    <div class="stack-list">
+      <div class="stack-item">
+        <h5>Hardware</h5>
+        <p>Adafruit nRF52840 · ICM-20948 × 2 · DFRobot EMG · DFRobot PPG · TCA9548A mux</p>
+      </div>
+      <div class="stack-item">
+        <h5>Firmware</h5>
+        <p>Arduino C++ · I²C · Analog read · USB Serial @ 115200 baud</p>
+      </div>
+      <div class="stack-item">
+        <h5>Bridge & ML</h5>
+        <p>Python · pyserial · pandas · scikit-learn · websockets</p>
+      </div>
+      <div class="stack-item">
+        <h5>App & Cloud</h5>
+        <p>Flutter · Dart · Supabase (Postgres + Auth)</p>
+      </div>
     </div>
+  </div>
+</section>
 
-  </section>
-
-  <!-- PROCESSING STACK -->
-
-  <section>
-
-    <div class="section-heading">
-      <h2>Real-Time Processing Stack</h2>
-      <div class="rule"></div>
-    </div>
-
-    <p class="section-subtitle">
-      Multi-layer software architecture enabling
-      real-time rehabilitation monitoring.
+<!-- PROCESSING STACK -->
+<section id="processing">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Real-Time Processing Stack</div>
+    <h2 class="section-title">Four stages, <em>end to end.</em></h2>
+    <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
+      The software pipeline that turns raw sensor voltages into live rehabilitation feedback.
     </p>
 
-    <div class="processing-grid">
-
-      <article class="process-card">
-
-        <div class="process-top">
-          <div class="process-icon">◉</div>
-
-          <div>
-            <span class="process-step">STEP 01</span>
-            <h3>Sensor Acquisition</h3>
-          </div>
-        </div>
-
-        <p>
-          Embedded firmware streams synchronized
-          IMU, EMG, and PPG signals.
-        </p>
-
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="process-step">Step 01</span>
+        <h4>Sensor Acquisition</h4>
+        <p>Embedded firmware streams synchronized IMU, EMG, and PPG signals over wired USB serial.</p>
         <div class="process-tags">
-          <span>Arduino</span>
-          <span>I²C</span>
-          <span>USB Serial</span>
+          <span>Arduino</span><span>I²C</span><span>USB Serial</span>
         </div>
+      </div>
 
-      </article>
-
-      <article class="process-card featured">
-
-        <div class="process-top">
-          <div class="process-icon">🐍</div>
-
-          <div>
-            <span class="process-step">STEP 02</span>
-            <h3>Python Processing Bridge</h3>
-          </div>
-        </div>
-
-        <p>
-          Filtering, feature extraction,
-          Random Forest inference,
-          and metric generation.
-        </p>
-
+      <div class="process-card featured">
+        <span class="process-step">Step 02</span>
+        <h4>Python Processing Bridge</h4>
+        <p>Filtering, feature extraction, per-exercise Random Forest inference, and metric generation.</p>
         <div class="process-tags">
-          <span>Filtering</span>
-          <span>ML</span>
-          <span>Inference</span>
+          <span>Filtering</span><span>ML</span><span>Inference</span>
         </div>
+      </div>
 
-      </article>
-
-      <article class="process-card">
-
-        <div class="process-top">
-          <div class="process-icon">⇄</div>
-
-          <div>
-            <span class="process-step">STEP 03</span>
-            <h3>WebSocket Streaming</h3>
-          </div>
-        </div>
-
-        <p>
-          Low-latency communication
-          between Python and Flutter.
-        </p>
-
+      <div class="process-card">
+        <span class="process-step">Step 03</span>
+        <h4>WebSocket Streaming</h4>
+        <p>Low-latency communication between the Python bridge and the Flutter app.</p>
         <div class="process-tags">
-          <span>WebSocket</span>
-          <span>Real-Time</span>
-          <span>Streaming</span>
+          <span>WebSocket</span><span>Real-Time</span><span>Streaming</span>
         </div>
+      </div>
 
-      </article>
-
-      <article class="process-card">
-
-        <div class="process-top">
-          <div class="process-icon">◆</div>
-
-          <div>
-            <span class="process-step">STEP 04</span>
-            <h3>Flutter App</h3>
-          </div>
-        </div>
-
-        <p>
-          Live rehabilitation visualization,
-          analytics, and feedback.
-        </p>
-
+      <div class="process-card">
+        <span class="process-step">Step 04</span>
+        <h4>Flutter App</h4>
+        <p>Live rehabilitation visualization, rep tracking, analytics, and feedback.</p>
         <div class="process-tags">
-          <span>Flutter</span>
-          <span>Analytics</span>
-          <span>Feedback</span>
+          <span>Flutter</span><span>Analytics</span><span>Feedback</span>
         </div>
-
-      </article>
-
+      </div>
     </div>
+  </div>
+</section>
 
-  </section>
-
-  <!-- ENGINEERING SPECIFICATIONS -->
-
-  <section>
-
-    <div class="section-heading">
-      <h2>Engineering Specifications</h2>
-      <div class="rule"></div>
-    </div>
-
-    <p class="section-subtitle">
-      System parameters optimized for
-      real-time rehabilitation monitoring.
+<!-- ENGINEERING SPECS -->
+<section id="specs" class="specs">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">Engineering Specifications</div>
+    <h2 class="section-title">System parameters, <em>optimized.</em></h2>
+    <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
+      Sampling, filtering, and latency parameters tuned for real-time rehabilitation monitoring.
     </p>
 
     <div class="spec-grid">
-
       <div class="spec-panel">
-
-        <h3>Core Technical Specs</h3>
-
-        <table>
-
+        <h4>Core Technical Specs</h4>
+        <table class="spec-table">
           <thead>
-            <tr>
-              <th>Parameter</th>
-              <th>Selected Value</th>
-              <th>Purpose</th>
-            </tr>
+            <tr><th>Parameter</th><th>Value</th><th>Purpose</th></tr>
           </thead>
-
           <tbody>
-
-            <tr>
-              <td>EMG Sampling</td>
-              <td><strong>1000 Hz</strong></td>
-              <td>Captures rapid muscle activation.</td>
-            </tr>
-
-            <tr>
-              <td>IMU Sampling</td>
-              <td><strong>~60 Hz</strong></td>
-              <td>Supports motion tracking.</td>
-            </tr>
-
-            <tr>
-              <td>PPG Update</td>
-              <td><strong>~1 Hz</strong></td>
-              <td>Tracks heart-rate variation.</td>
-            </tr>
-
-            <tr>
-              <td>Serial Baud</td>
-              <td><strong>230400</strong></td>
-              <td>Stable multi-sensor streaming.</td>
-            </tr>
-
-            <tr>
-              <td>Classifier</td>
-              <td><strong>Random Forest</strong></td>
-              <td>Exercise form classification.</td>
-            </tr>
-
+            <tr><td>IMU sampling</td><td><strong>~60 Hz</strong></td><td>Motion / elbow-angle tracking.</td></tr>
+            <tr><td>EMG envelope</td><td><strong>~19.6 Hz</strong></td><td>Muscle-activation display (not a classifier feature).</td></tr>
+            <tr><td>PPG update</td><td><strong>~1 Hz</strong></td><td>Heart-rate variation.</td></tr>
+            <tr><td>Serial baud</td><td><strong>115200</strong></td><td>Stable multi-sensor streaming.</td></tr>
+            <tr><td>Classifier</td><td><strong>Random Forest</strong></td><td>Per-exercise form classification.</td></tr>
           </tbody>
-
         </table>
-
+        <p class="spec-note">EMG is captured as a rectified envelope and used for activation display only — it is not an input feature to the form classifier.</p>
       </div>
 
       <div class="spec-panel">
-
-        <h3>Signal Processing</h3>
-
-        <table>
-
+        <h4>Signal Processing</h4>
+        <table class="spec-table">
           <thead>
-            <tr>
-              <th>Signal</th>
-              <th>Filtering</th>
-              <th>Purpose</th>
-            </tr>
+            <tr><th>Signal</th><th>Filtering</th><th>Purpose</th></tr>
           </thead>
-
           <tbody>
-
-            <tr>
-              <td>EMG</td>
-              <td><strong>20–250 Hz bandpass</strong></td>
-              <td>Noise reduction and envelope extraction.</td>
-            </tr>
-
-            <tr>
-              <td>IMU</td>
-              <td><strong>Complementary + 4 Hz LPF</strong></td>
-              <td>Stable elbow angle estimation.</td>
-            </tr>
-
-            <tr>
-              <td>PPG</td>
-              <td><strong>EMA smoothing</strong></td>
-              <td>Heart-rate stabilization.</td>
-            </tr>
-
+            <tr><td>EMG</td><td><strong>20–250 Hz analog bandpass</strong></td><td>On-sensor noise reduction before enveloping.</td></tr>
+            <tr><td>IMU</td><td><strong>Complementary + 4 Hz LPF</strong></td><td>Stable elbow-angle estimation.</td></tr>
+            <tr><td>PPG</td><td><strong>EMA smoothing</strong></td><td>Heart-rate stabilization.</td></tr>
           </tbody>
-
         </table>
-
+        <p class="spec-note">The 20–250 Hz bandpass is performed in hardware on the DFRobot Gravity EMG module; the firmware then samples the rectified envelope at ~19.6 Hz.</p>
       </div>
 
       <div class="spec-panel full">
-
-        <h3>Latency Validation</h3>
-
-        <table>
-
+        <h4>Latency Validation</h4>
+        <table class="spec-table">
           <thead>
-            <tr>
-              <th>Signal</th>
-              <th>Latency</th>
-              <th>Engineering Meaning</th>
-            </tr>
+            <tr><th>Signal</th><th>Latency</th><th>Engineering Meaning</th></tr>
           </thead>
-
           <tbody>
-
-            <tr>
-              <td>IMU</td>
-              <td><strong>2–50 ms</strong></td>
-              <td>Responsive motion tracking.</td>
-            </tr>
-
-            <tr>
-              <td>EMG</td>
-              <td><strong>17–65 ms</strong></td>
-              <td>Near real-time muscle monitoring.</td>
-            </tr>
-
-            <tr>
-              <td>PPG</td>
-              <td><strong>0.5–1 s</strong></td>
-              <td>Expected optical HR delay.</td>
-            </tr>
-
+            <tr><td>IMU</td><td><strong>2–50 ms</strong></td><td>Responsive motion tracking.</td></tr>
+            <tr><td>EMG</td><td><strong>17–65 ms</strong></td><td>Near real-time muscle monitoring.</td></tr>
+            <tr><td>PPG</td><td><strong>0.5–1 s</strong></td><td>Expected optical HR delay.</td></tr>
           </tbody>
-
         </table>
 
         <div class="mini-metrics">
-
-          <div class="metric">
-            <strong>~60 Hz</strong>
-            <span>IMU Stream</span>
-          </div>
-
-          <div class="metric">
-            <strong>1000 Hz</strong>
-            <span>EMG Sampling</span>
-          </div>
-
-          <div class="metric">
-            <strong>230400</strong>
-            <span>USB Baud</span>
-          </div>
-
+          <div class="metric"><strong>~60 Hz</strong><span>IMU Stream</span></div>
+          <div class="metric"><strong>~19.6 Hz</strong><span>EMG Envelope</span></div>
+          <div class="metric"><strong>115200</strong><span>USB Baud</span></div>
         </div>
-
       </div>
-
     </div>
+  </div>
+</section>
 
-  </section>
+<!-- HARDWARE BOM -->
+<section id="hardware">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Bill of Materials</div>
+    <h2 class="section-title">What's <em>inside the sleeve.</em></h2>
+    <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
+      Every component, sourced and itemized. Below is the current build configuration —
+      part numbers and sources are listed for reproducibility.
+    </p>
 
-</main>
+    <div class="hardware-table">
+      <div class="bom-row header">
+        <div>Component</div><div>Function</div><div>Qty</div><div>Source</div>
+      </div>
+      <div class="bom-row">
+        <div class="name">Adafruit Feather nRF52840</div>
+        <div class="role">Microcontroller, USB serial host</div>
+        <div class="qty">1</div><div class="source">Adafruit</div>
+      </div>
+      <div class="bom-row">
+        <div class="name">ICM-20948 IMU</div>
+        <div class="role">9-DOF inertial measurement</div>
+        <div class="qty">2</div><div class="source">SparkFun</div>
+      </div>
+      <div class="bom-row">
+        <div class="name">TCA9548A I²C Mux</div>
+        <div class="role">Multiplex two IMUs on shared I²C bus</div>
+        <div class="qty">1</div><div class="source">Adafruit</div>
+      </div>
+      <div class="bom-row">
+        <div class="name">DFRobot Analog EMG (SEN0240)</div>
+        <div class="role">Surface electromyography</div>
+        <div class="qty">1</div><div class="source">DFRobot</div>
+      </div>
+      <div class="bom-row">
+        <div class="name">DFRobot Heart Rate (SEN0203)</div>
+        <div class="role">Photoplethysmography for HR</div>
+        <div class="qty">1</div><div class="source">DFRobot</div>
+      </div>
+      <div class="bom-row">
+        <div class="name">Nylon-Spandex Fabric</div>
+        <div class="role">Single-layer pull-on compression sleeve</div>
+        <div class="qty">~0.5 yd</div><div class="source">Fabric.com</div>
+      </div>
+      <div class="bom-row">
+        <div class="name">PLA / TPU Filament</div>
+        <div class="role">3D-printed pod enclosures</div>
+        <div class="qty">~80 g</div><div class="source">Bambu Lab</div>
+      </div>
+      <div class="bom-row">
+        <div class="name">3.7V Li-Po Battery</div>
+        <div class="role">Portable power supply</div>
+        <div class="qty">1</div><div class="source">Adafruit</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-brand">Smart Compression<br>Sleeve · Team R</div>
+      <p class="footer-tagline">A senior design project bridging consumer wearables and clinical rehabilitation — built at UC Riverside.</p>
+    </div>
+    <div>
+      <h5>Project</h5>
+      <ul>
+        <li><a href="problem.html">The Problem</a></li>
+        <li><a href="solution.html">The Device</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="team.html">The Team</a></li>
+        <li><a href="tech.html">Tech</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">GitHub Repository</a></li>
+        <li><a href="#">Demo Video</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Smart Compression Sleeve · BIEN · UC Riverside</div>
+    <div><em>Built with care in Riverside, California.</em></div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
 </body>
 </html>
