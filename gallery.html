@@ -54,17 +54,19 @@
     margin-bottom: 2.5rem;
   }
 
-  /* Original device layout: keeps hero space + two right-side images */
-  .grid-two-asymmetric {
+  /* Device gallery grid */
+  .device-photo-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 1.5rem;
+    align-items: stretch;
   }
 
-  .grid-two-asymmetric .photo-tile.large {
+  .device-photo-grid .large {
     grid-row: span 2;
   }
 
+  /* Other gallery grids */
   .grid-three {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -78,22 +80,10 @@
     gap: 1.5rem;
   }
 
-  .grid-mosaic .photo-tile:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  .grid-mosaic .photo-tile:nth-child(2) {
-    grid-column: span 2;
-  }
-
-  .grid-mosaic .photo-tile:nth-child(3) {
-    grid-column: span 1;
-  }
-
-  .grid-mosaic .photo-tile:nth-child(4) {
-    grid-column: span 1;
-  }
+  .grid-mosaic .photo-tile:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .grid-mosaic .photo-tile:nth-child(2) { grid-column: span 2; }
+  .grid-mosaic .photo-tile:nth-child(3) { grid-column: span 1; }
+  .grid-mosaic .photo-tile:nth-child(4) { grid-column: span 1; }
 
   .photo-tile {
     background: var(--blush-soft);
@@ -116,7 +106,7 @@
   .photo-tile img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -141,6 +131,7 @@
     margin-top: 0.3rem;
   }
 
+  /* Video block */
   .video-block {
     background: var(--burgundy-deep);
     color: var(--cream);
@@ -211,16 +202,16 @@
   }
 
   @media (max-width: 900px) {
-    .grid-three {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-two-asymmetric {
+    .device-photo-grid {
       grid-template-columns: 1fr;
     }
 
-    .grid-two-asymmetric .photo-tile.large {
+    .device-photo-grid .large {
       grid-row: span 1;
+    }
+
+    .grid-three {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .grid-mosaic {
@@ -326,18 +317,18 @@
     <h3>Finished <em>form factor.</em></h3>
     <p class="description">Final assembled sleeve, sensor pods, and worn shots.</p>
 
-    <div class="grid-two-asymmetric">
+    <div class="device-photo-grid">
       <div class="photo-tile large tall">
         <p>Hero device shot</p>
         <small>Replace</small>
       </div>
 
       <div class="photo-tile">
-        <img src="./unnamed.jpg" alt="Sensor pod close-up">
+        <img src="unnamed.jpg" alt="Sensor pod close-up">
       </div>
 
       <div class="photo-tile">
-        <img src="./IMG_5027.jpeg" alt="Worn smart compression sleeve in use">
+        <img src="IMG_5027.jpeg" alt="Worn smart compression sleeve in use">
       </div>
     </div>
   </div>
@@ -350,7 +341,8 @@
 
     <div class="grid-mosaic">
       <div class="photo-tile">
-        <img src="./IMG_4409.jpg" alt="Circuit soldering in progress">
+        <p>Circuit soldering in progress</p>
+        <small>Replace</small>
       </div>
 
       <div class="photo-tile">
