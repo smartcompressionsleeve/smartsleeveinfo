@@ -92,6 +92,15 @@
     overflow: hidden;
     position: relative;
     transition: transform 0.4s ease;
+    .photo-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wide-photo {
+  aspect-ratio: 16/9;
+}
   }
 
   .photo-tile:hover { transform: scale(1.02); }
@@ -276,7 +285,7 @@
         <p>Sensor pod close-up</p>
         <small>Replace</small>
       </div>
-      <div class="photo-tile">
+      <div class="photo-tile wide-photo">
   <img src="IMG_5027.jpeg" alt="Worn smart compression sleeve in use">
       </div>
     </div>
