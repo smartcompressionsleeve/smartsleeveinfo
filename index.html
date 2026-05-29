@@ -15,6 +15,8 @@
 
 <style>
 
+/* ================= HERO ================= */
+
 .hero {
   min-height: 100vh;
   padding: 9rem 3rem 5rem;
@@ -97,12 +99,15 @@
   flex-wrap: wrap;
 }
 
+/* ================= FIXED IMAGE SECTION ================= */
+
 .hero-image {
   position: relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 16/10;
   overflow: hidden;
   border-radius: 6px;
   z-index: 2;
+  background: #f4e0e0;
 
   box-shadow:
     0 30px 60px -20px rgba(74, 15, 24, 0.25),
@@ -112,9 +117,11 @@
 .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
+
+/* ================= MOBILE ================= */
 
 @media (max-width: 900px) {
 
@@ -128,6 +135,8 @@
   }
 
 }
+
+/* ================= PREVIEW ================= */
 
 .preview {
   background: var(--cream-warm);
@@ -196,6 +205,8 @@
   margin-top: 1.2rem;
 }
 
+/* ================= STATS ================= */
+
 .stats-banner {
   background: var(--burgundy-deep);
   color: var(--cream);
@@ -229,7 +240,7 @@
 
 <body>
 
-<!-- NAV -->
+<!-- ================= NAV ================= -->
 
 <nav class="site-nav">
 
@@ -324,7 +335,7 @@
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -345,6 +356,7 @@
     </p>
 
     <div class="hero-buttons">
+
       <a href="results.html" class="btn-primary">
         See the results →
       </a>
@@ -352,9 +364,12 @@
       <a href="team.html" class="btn-secondary">
         Meet the team
       </a>
+
     </div>
 
   </div>
+
+  <!-- ================= IMAGE ================= -->
 
   <div class="hero-image">
 
@@ -367,7 +382,7 @@
 
 </section>
 
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 
 <section class="stats-banner">
 
@@ -390,18 +405,22 @@
 
 </section>
 
-<!-- PREVIEW -->
+<!-- ================= PREVIEW ================= -->
 
 <section class="preview">
 
   <div class="preview-inner">
 
     <div class="preview-header">
-      <div class="section-label">Explore</div>
+
+      <div class="section-label">
+        Explore
+      </div>
 
       <h2 class="section-title">
         A wearable, <em>broken down.</em>
       </h2>
+
     </div>
 
     <div class="preview-grid">
@@ -472,13 +491,14 @@
 
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
   <div class="footer-content">
 
     <div>
+
       <div class="footer-brand">
         Smart Compression<br>
         Sleeve · Team R
@@ -488,9 +508,11 @@
         A senior design project bridging consumer wearables
         and clinical rehabilitation — built at UC Riverside.
       </p>
+
     </div>
 
     <div>
+
       <h5>Project</h5>
 
       <ul>
@@ -500,12 +522,15 @@
         <li><a href="team.html">The Team</a></li>
         <li><a href="tech.html">Tech</a></li>
       </ul>
+
     </div>
 
     <div>
+
       <h5>Connect</h5>
 
       <ul>
+
         <li>
           <a href="https://github.com/smartcompressionsleeve/smart-compression-sleeve" target="_blank">
             GitHub Repository
@@ -513,8 +538,11 @@
         </li>
 
         <li><a href="#">Demo Video</a></li>
+
         <li><a href="#">Contact</a></li>
+
       </ul>
+
     </div>
 
   </div>
