@@ -6,142 +6,143 @@
 <title>Gallery — Smart Compression Sleeve</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
 <style>
-  .gallery-section {
-    max-width: 1300px;
+  .gallery-wrapper {
+    max-width: 1100px;
     margin: 0 auto;
   }
 
-  .gallery-section + .gallery-section {
-    margin-top: 5rem;
-    padding-top: 4rem;
-    border-top: 1px solid rgba(123, 45, 63, 0.12);
-  }
-
-  .gallery-section h3 {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: var(--burgundy-deep);
-    margin-bottom: 0.4rem;
-  }
-
-  .gallery-section h3 em {
-    font-style: italic;
-    color: var(--burgundy);
-    font-weight: 400;
-  }
-
-  .gallery-section .label {
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 0.6rem;
-    font-weight: 500;
-  }
-
-  .gallery-section .description {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.1rem;
+  .gallery-intro {
+    font-size: 1rem;
+    line-height: 1.7;
     color: var(--charcoal);
-    line-height: 1.5;
-    max-width: 38rem;
-    margin-bottom: 2.5rem;
+    max-width: 50rem;
+    margin-bottom: 3rem;
   }
 
-  /* Device gallery grid */
-  .device-photo-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 1.5rem;
-    align-items: stretch;
-  }
-
-  .device-photo-grid .large {
-    grid-row: span 2;
-  }
-
-  /* Testing grid */
-  .grid-three {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  /* Clean 2x2 build process grid */
-  .grid-mosaic {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .grid-mosaic .photo-tile {
-    aspect-ratio: 4/3;
-  }
-
-  .photo-tile {
-    background: var(--blush-soft);
-    border: 1px solid var(--rose);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--burgundy);
-    aspect-ratio: 4/3;
-    overflow: hidden;
+  .carousel {
     position: relative;
-    transition: transform 0.4s ease;
+    margin: 0 auto;
   }
 
-  .photo-tile:hover {
-    transform: scale(1.02);
+  .carousel-track {
+    position: relative;
+    aspect-ratio: 16/10;
+    background: var(--blush-soft);
+    overflow: hidden;
+    border: 1px solid rgba(123, 45, 63, 0.12);
+    box-shadow: 0 20px 40px -15px rgba(74, 15, 24, 0.15);
   }
 
-  .photo-tile img {
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    margin: 0;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain !important;
+    object-fit: cover;
     display: block;
   }
 
-  .pod-full img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-  }
-
-  .photo-tile.tall {
-    aspect-ratio: 3/4;
-  }
-
-  .photo-tile p {
+  .carousel-slide figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 2.5rem 1.5rem;
+    background: linear-gradient(transparent, rgba(74, 15, 24, 0.88));
+    color: var(--cream);
     font-family: var(--serif);
     font-style: italic;
-    font-size: 1rem;
-    padding: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 1px solid var(--rose);
+    color: var(--burgundy);
+    font-size: 1.6rem;
+    font-family: var(--serif);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .carousel-btn:hover {
+    background: var(--burgundy);
+    color: var(--cream);
+    transform: translateY(-50%) scale(1.08);
+  }
+
+  .carousel-btn.prev { left: -1.5rem; }
+  .carousel-btn.next { right: -1.5rem; }
+
+  .carousel-dots {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .carousel-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--rose);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .carousel-dot:hover { background: var(--rose); }
+
+  .carousel-dot.active {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+  }
+
+  .carousel-counter {
     text-align: center;
-  }
-
-  .photo-tile small {
-    font-family: var(--sans);
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    margin-top: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
     color: var(--rose);
-    margin-top: 0.3rem;
+    letter-spacing: 0.1em;
   }
 
-  /* Video block */
   .video-block {
     background: var(--burgundy-deep);
     color: var(--cream);
     padding: 4rem;
-    margin: 3rem 0 5rem;
+    margin: 5rem auto 0;
+    max-width: 1100px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -206,32 +207,17 @@
     color: var(--blush);
   }
 
-  @media (max-width: 900px) {
-    .device-photo-grid {
-      grid-template-columns: 1fr;
+  @media (max-width: 700px) {
+    .carousel-btn.prev { left: 0.5rem; }
+    .carousel-btn.next { right: 0.5rem; }
+    .carousel-slide figcaption {
+      padding: 1.5rem 1.2rem 1rem;
+      font-size: 0.95rem;
     }
-
-    .device-photo-grid .large {
-      grid-row: span 1;
-    }
-
-    .grid-three {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-mosaic {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .grid-three {
-      grid-template-columns: 1fr;
-    }
+    .video-block { padding: 2rem; }
   }
 </style>
 </head>
-
 <body>
 
 <nav class="site-nav">
@@ -239,7 +225,6 @@
   <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-
     <li class="has-dropdown active">
       <a href="solution.html">The Project</a>
       <ul class="dropdown">
@@ -248,7 +233,6 @@
         <li><a href="gallery.html">Gallery<small>Build photos & demos</small></a></li>
       </ul>
     </li>
-
     <li class="has-dropdown">
       <a href="results.html">Results</a>
       <ul class="dropdown">
@@ -256,9 +240,7 @@
         <li><a href="results.html#classifier">Classifier<small>96.6% accuracy + matrix</small></a></li>
       </ul>
     </li>
-
     <li><a href="team.html">Team</a></li>
-
     <li class="has-dropdown">
       <a href="tech.html">Tech</a>
       <ul class="dropdown">
@@ -275,14 +257,126 @@
     <div class="section-label">Gallery</div>
     <h1 class="fade-up">Behind the <em>build.</em></h1>
     <p class="fade-up" style="animation-delay: 0.15s;">
-      Soldering, sewing, debugging, and demoing — the parts of senior design that don't
-      fit on a poster.
+      Soldering, sewing, debugging, and demoing — the parts of senior design that
+      don't fit on a poster.
     </p>
   </div>
 </section>
 
 <section>
-  <!-- VIDEO BLOCK -->
+  <div class="gallery-wrapper">
+    <p class="gallery-intro">
+      Click through the photos to see the project come together — from the first
+      breadboard sensor test through to a finished, worn device.
+    </p>
+
+    <div class="carousel">
+      <div class="carousel-track">
+
+        <figure class="carousel-slide">
+          <img src="IMG_7118_2.jpeg" alt="Adafruit Feather and IMU breakout boards on a breadboard with jumper wires">
+          <figcaption>First sensor bring-up on a breadboard: the Adafruit Feather nRF52840 wired to the IMU breakouts and I²C mux, fanned out across jumper wires before any soldering.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="IMG_7032.jpeg" alt="Lab session showing EMG signal traces on a laptop screen during electrode testing">
+          <figcaption>Early EMG electrode characterization — validating raw signal quality on screen before any sleeve integration. The rectified envelope responds visibly to muscle contraction.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="IMG_7310.JPG" alt="EMG sensor board taped to the bicep during early signal testing in a makerspace">
+          <figcaption>Iterating on EMG sensor placement. Surface electrodes taped to the biceps brachii to find the position that captured the cleanest activation pattern.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="IMG_7259.JPG" alt="Electrodes and wires taped to a leg with Arduino serial monitor open on a nearby laptop">
+          <figcaption>Multi-electrode characterization with Arduino's serial monitor open to read live values — one of many sessions to nail down sensor placement and wiring.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="IMG_7294.JPG" alt="Top-down view of a person's arm with multiple sensors and wires taped on with pink tape">
+          <figcaption>Full multi-sensor integration on a bare arm — IMUs, EMG, and PPG all wired up and held in place with electrical tape, before the pod enclosures existed.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="unnamed%20%281%29.jpg" alt="Circuit soldering in progress">
+          <figcaption>Building the Big Pod electronics — the Feather MCU, I²C multiplexer, and sensor headers all soldered onto one board.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="Sleeve%20Fabrication.jpg" alt="Sleeve fabrication">
+          <figcaption>Cutting and sewing the single-layer nylon-spandex compression sleeve.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="Sleeve.jpg" alt="Sleeve layering">
+          <figcaption>The finished sleeve with strap-mounted sensor pods — light, breathable, and easy to pull on.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="Prototyping.jpg" alt="Team working session">
+          <figcaption>A team working session — firmware, bridge, and app development happening in parallel.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="Bicepcurl.jpg" alt="Subject doing bicep curls">
+          <figcaption>Live bicep curl trial with the sleeve in place, IMUs streaming, and the EMG envelope rising on each rep.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="Debugging.png" alt="Lab debugging">
+          <figcaption>Troubleshooting the sensor pipeline in the lab — one of many sessions tracking down intermittent I²C faults.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="Livescreen.png" alt="Live data displayed on laptop">
+          <figcaption>Real-time form classification on screen: the Python bridge running per-rep Random Forest inference and pushing results to the Flutter app.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="unnamed.jpg" alt="Sensor pod close-up">
+          <figcaption>Close-up of a finished sensor pod, ready to strap onto the sleeve.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="IMG_7481.JPG" alt="Student wearing the finished compression sleeve and sensor pods at a study desk">
+          <figcaption>The finished sleeve worn during a study session — proof that the device is comfortable and discreet enough for real-world use, not just lab conditions.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+          <img src="IMG_5027.jpeg" alt="Worn smart compression sleeve">
+          <figcaption>The complete system, worn during a rehabilitation session.</figcaption>
+        </figure>
+
+      </div>
+
+      <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+      <button class="carousel-btn next" aria-label="Next slide">›</button>
+
+      <div class="carousel-dots">
+        <button class="carousel-dot" data-slide="0" aria-label="Slide 1"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+        <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+        <button class="carousel-dot" data-slide="3" aria-label="Slide 4"></button>
+        <button class="carousel-dot" data-slide="4" aria-label="Slide 5"></button>
+        <button class="carousel-dot" data-slide="5" aria-label="Slide 6"></button>
+        <button class="carousel-dot" data-slide="6" aria-label="Slide 7"></button>
+        <button class="carousel-dot" data-slide="7" aria-label="Slide 8"></button>
+        <button class="carousel-dot" data-slide="8" aria-label="Slide 9"></button>
+        <button class="carousel-dot" data-slide="9" aria-label="Slide 10"></button>
+        <button class="carousel-dot" data-slide="10" aria-label="Slide 11"></button>
+        <button class="carousel-dot" data-slide="11" aria-label="Slide 12"></button>
+        <button class="carousel-dot" data-slide="12" aria-label="Slide 13"></button>
+        <button class="carousel-dot" data-slide="13" aria-label="Slide 14"></button>
+        <button class="carousel-dot" data-slide="14" aria-label="Slide 15"></button>
+      </div>
+    </div>
+
+    <div class="carousel-counter">
+      <span class="current">1</span> / <span class="total">15</span>
+    </div>
+  </div>
+
   <div class="video-block">
     <h3>Live demo</h3>
     <p>Watch the sleeve classify form in real time during a bicep curl session.</p>
@@ -296,73 +390,6 @@
       <small style="display:block; margin-top:0.5rem;">Embed YouTube or replace with &lt;video&gt; tag</small>
     </div>
   </div>
-
-  <!-- DEVICE SHOTS -->
-  <div class="gallery-section">
-    <div class="label">The Device</div>
-    <h3>Finished <em>form factor.</em></h3>
-    <p class="description">Final assembled sleeve, sensor pods, and worn shots.</p>
-
-    <div class="device-photo-grid">
-      <div class="photo-tile large tall">
-        <p>Hero device shot</p>
-        <small>Replace</small>
-      </div>
-
-      <div class="photo-tile pod-full">
-        <img src="unnamed.jpg" alt="Sensor pod close-up">
-      </div>
-
-      <div class="photo-tile">
-        <img src="IMG_5027.jpeg" alt="Worn smart compression sleeve in use">
-      </div>
-    </div>
-  </div>
-
-<!-- BUILD PROCESS -->
-<div class="gallery-section">
-  <div class="label">Build Process</div>
-  <h3>Iteration in <em>full color.</em></h3>
-  <p class="description">Soldering, sleeve fabrication, sleeve layering, and prototyping.</p>
-
-  <div class="build-grid">
-    <div class="photo-tile">
-      <img src="unnamed%20%281%29.jpg" alt="Circuit soldering in progress">
-    </div>
-
-    <div class="photo-tile">
-      <img src="Sleeve%20Fabrication.jpg" alt="Sleeve fabrication">
-    </div>
-
-    <div class="photo-tile">
-      <img src="Sleeve.jpg" alt="Sleeve layering">
-    </div>
-
-    <div class="photo-tile">
-      <img src="Prototyping.jpg" alt="Team working session">
-    </div>
-  </div>
-</div>
-
-  <!-- TESTING -->
-  <div class="gallery-section">
-    <div class="label">Testing & Data</div>
-    <h3>Trials and <em>iteration.</em></h3>
-    <p class="description">Bicep curl data collection sessions, debug sessions, lab work.</p>
-
-  <div class="photo-tile">
-  <img src="./Bicepcurl.jpg" alt="Subject doing bicep curls">
-</div>
-
-   <div class="photo-tile">
-  <img src="Livescreen.png" alt="Live data displayed on laptop">
-</div>
-
-     <div class="photo-tile">
-  <img src="Debugging.png" alt="Lab debugging">
-</div>
-    </div>
-  </div>
 </section>
 
 <footer>
@@ -371,7 +398,6 @@
       <div class="footer-brand">Smart Compression<br>Sleeve · Team R</div>
       <p class="footer-tagline">A senior design project bridging consumer wearables and clinical rehabilitation — built at UC Riverside.</p>
     </div>
-
     <div>
       <h5>Project</h5>
       <ul>
@@ -382,7 +408,6 @@
         <li><a href="tech.html">Tech</a></li>
       </ul>
     </div>
-
     <div>
       <h5>Connect</h5>
       <ul>
@@ -392,13 +417,47 @@
       </ul>
     </div>
   </div>
-
   <div class="footer-bottom">
-    <div>© 2026 Smart Compression Sleeve· BIEN · UC Riverside</div>
+    <div>© 2026 Smart Compression Sleeve · BIEN · UC Riverside</div>
     <div><em>Built with care in Riverside, California.</em></div>
   </div>
 </footer>
 
 <script src="nav.js"></script>
+<script>
+(function() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const counterCurrent = document.querySelector('.carousel-counter .current');
+  const counterTotal = document.querySelector('.carousel-counter .total');
+
+  if (!slides.length) return;
+
+  let current = 0;
+  if (counterTotal) counterTotal.textContent = slides.length;
+  slides[0].classList.add('active');
+  if (dots[0]) dots[0].classList.add('active');
+
+  function showSlide(n) {
+    slides[current].classList.remove('active');
+    if (dots[current]) dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    if (dots[current]) dots[current].classList.add('active');
+    if (counterCurrent) counterCurrent.textContent = current + 1;
+  }
+
+  prevBtn.addEventListener('click', () => showSlide(current - 1));
+  nextBtn.addEventListener('click', () => showSlide(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') showSlide(current - 1);
+    if (e.key === 'ArrowRight') showSlide(current + 1);
+  });
+})();
+</script>
 </body>
 </html>
