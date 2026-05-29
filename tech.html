@@ -416,36 +416,37 @@
     <h2 class="section-title">Open code, <em>open hardware.</em></h2>
     <p style="font-size: 1rem; line-height: 1.7; color: var(--charcoal); max-width: 50rem;">
       All project code is open on GitHub. The firmware, the Python bridge, the classifier
-      training pipeline, and the Flutter companion app each live in their own repo.
+      training pipeline, and the Flutter companion app each live in their own folder of
+      the project repository.
     </p>
 
     <div class="repo-grid">
-      <a href="#" class="repo-card">
+      <a href="https://github.com/smartcompressionsleeve/smart-compression-sleeve/tree/main/firmware" target="_blank" rel="noopener noreferrer" class="repo-card">
         <div class="lang">C++ · Arduino</div>
         <h4>Sleeve Firmware</h4>
         <p>Adafruit Feather nRF52840 firmware: I²C mux drivers, IMU/EMG/PPG sampling loop, USB serial streaming.</p>
-        <div class="link">github.com/team-r/sleeve-firmware</div>
+        <div class="link">github.com/smartcompressionsleeve/smart-compression-sleeve/firmware</div>
       </a>
 
-      <a href="#" class="repo-card">
+      <a href="https://github.com/smartcompressionsleeve/smart-compression-sleeve/tree/main/ml-pipeline" target="_blank" rel="noopener noreferrer" class="repo-card">
         <div class="lang">Python · scikit-learn</div>
         <h4>ML Pipeline</h4>
         <p>Feature extraction, Random Forest training, GroupKFold cross-validation, and confusion matrix generation.</p>
-        <div class="link">github.com/team-r/sleeve-ml</div>
+        <div class="link">github.com/smartcompressionsleeve/smart-compression-sleeve/ml-pipeline</div>
       </a>
 
-      <a href="#" class="repo-card">
+      <a href="https://github.com/smartcompressionsleeve/smart-compression-sleeve/tree/main/bridge" target="_blank" rel="noopener noreferrer" class="repo-card">
         <div class="lang">Python · WebSockets</div>
         <h4>Serial Bridge</h4>
         <p>Reads serial packets from the MCU and broadcasts to the Flutter app over WebSocket for real-time inference.</p>
-        <div class="link">github.com/team-r/sleeve-bridge</div>
+        <div class="link">github.com/smartcompressionsleeve/smart-compression-sleeve/bridge</div>
       </a>
 
-      <a href="#" class="repo-card">
+      <a href="https://github.com/smartcompressionsleeve/smart-compression-sleeve/tree/main/app" target="_blank" rel="noopener noreferrer" class="repo-card">
         <div class="lang">Dart · Flutter</div>
         <h4>Companion App</h4>
         <p>iOS Flutter app: live form feedback, rep counting, session history backed by Supabase.</p>
-        <div class="link">github.com/team-r/sleeve-app</div>
+        <div class="link">github.com/smartcompressionsleeve/smart-compression-sleeve/app</div>
       </a>
     </div>
   </div>
@@ -679,7 +680,7 @@
     <div>
       <h5>Connect</h5>
       <ul>
-        <li><a href="#">GitHub Repository</a></li>
+        <li><a href="https://github.com/smartcompressionsleeve/smart-compression-sleeve" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
         <li><a href="#">Demo Video</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
