@@ -27,6 +27,7 @@
     height: 12rem;
     margin: 0 auto 1.5rem;
     border-radius: 50%;
+    overflow: hidden;
     background: var(--burgundy);
     display: flex;
     align-items: center;
@@ -41,6 +42,13 @@
       0 0 0 1px var(--rose),
       0 15px 30px -10px rgba(74, 15, 24, 0.25);
     transition: transform 0.4s ease;
+  }
+
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .team-member:hover .member-photo {
@@ -198,12 +206,12 @@
 <section>
   <div class="team-grid">
     <div class="team-member">
-      <div class="member-photo">E</div>
+      <div class="member-photo"><img src="images/elizabeth_jacob.png" alt="Elizabeth Jacob"></div>
       <div class="member-name">Elizabeth Jacob</div>
-      <div class="member-role">ML · Python · Serial </div>
+      <div class="member-role">ML · Python · Serial</div>
       <p class="member-bio">
         Built the Random Forest classifier, the Python sensor data pipeline, and the
-        serial-over-USB bridge that streams data from the sleeve to the host. 
+        serial-over-USB bridge that streams data from the sleeve to the host.
       </p>
       <div class="member-links">
         <a href="resumes/elizabeth_jacob.pdf" target="_blank" rel="noopener noreferrer" class="member-link">Resume →</a>
@@ -212,11 +220,11 @@
     </div>
 
     <div class="team-member">
-      <div class="member-photo">K</div>
-      <div class="member-name">Katie Bruselas </div>
-      <div class="member-role">Flutter App · UI ·Hardware Architecture </div>
+      <div class="member-photo"><img src="images/katie_bruselas.png" alt="Katie Bruselas"></div>
+      <div class="member-name">Katie Bruselas</div>
+      <div class="member-role">Flutter App · UI · Hardware Architecture</div>
       <p class="member-bio">
-        Developed the Flutter mobile companion app, real-time feedback UI, and made the hardware circuit diagrams. 
+        Developed the Flutter mobile companion app, real-time feedback UI, and made the hardware circuit diagrams.
       </p>
       <div class="member-links">
         <a href="resumes/katie_bruselas.pdf" target="_blank" rel="noopener noreferrer" class="member-link">Resume →</a>
@@ -225,11 +233,11 @@
     </div>
 
     <div class="team-member">
-      <div class="member-photo">E</div>
-      <div class="member-name">Eva Reyes </div>
+      <div class="member-photo"><img src="images/eva_reyes.png" alt="Eva Reyes"></div>
+      <div class="member-name">Eva Reyes</div>
       <div class="member-role">Manufacturing · Device Testing</div>
       <p class="member-bio">
-        Manufactured the sleeve fabric, tested the sensors, and extensively troubleshooted the sensors. 
+        Manufactured the sleeve fabric, tested the sensors, and extensively troubleshooted the sensors.
       </p>
       <div class="member-links">
         <a href="resumes/eva_reyes.pdf" target="_blank" rel="noopener noreferrer" class="member-link">Resume →</a>
