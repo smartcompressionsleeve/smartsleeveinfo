@@ -4,10 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Problem — Smart Compression Sleeve</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
 <style>
   .problem-grid {
     max-width: 1100px;
@@ -30,7 +32,6 @@
     font-weight: 500;
     color: var(--burgundy);
     line-height: 1;
-    letter-spacing: -0.02em;
   }
 
   .stat-card .number sup {
@@ -52,7 +53,6 @@
     line-height: 1.6;
     color: var(--charcoal);
     margin-bottom: 1.5rem;
-    font-weight: 400;
   }
 
   .problem-body p:first-of-type::first-letter {
@@ -63,6 +63,34 @@
     padding-top: 0.4rem;
     color: var(--burgundy);
     font-weight: 600;
+  }
+
+  .cad-section {
+    background: var(--cream);
+    padding-top: 2rem;
+  }
+
+  .cad-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .cad-image {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .cad-caption {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--charcoal);
+    max-width: 52rem;
   }
 
   .comparison {
@@ -165,6 +193,7 @@
   }
 </style>
 </head>
+
 <body>
 
 <nav class="site-nav">
@@ -215,14 +244,17 @@
   <div class="problem-grid">
     <div>
       <div class="section-label">By The Numbers</div>
+
       <div class="stat-card">
         <div class="number">70<sup>%</sup></div>
         <p>of physical therapy patients fail to complete prescribed at-home exercises [1].</p>
       </div>
+
       <div class="stat-card">
         <div class="number">35<sup>%</sup></div>
         <p>of those who do perform their exercises incorrectly — without real-time feedback to correct form [1].</p>
       </div>
+
       <div class="stat-card">
         <div class="number">50M</div>
         <p>Americans seek physical therapy annually, accounting for over 300M sessions per year [2].</p>
@@ -250,10 +282,30 @@
   </div>
 </section>
 
+<section class="cad-section">
+  <div class="cad-wrap">
+    <div class="section-label">CAD Design</div>
+    <h2 class="section-title">Sensor pod dimensions</h2>
+
+    <img 
+      class="cad-image" 
+      src="images/cad-model-measurements.png" 
+      alt="CAD model measurements showing big pod and small pod outer and internal dimensions"
+    >
+
+    <p class="cad-caption">
+      Dimensioned CAD models for the large electronics pod and smaller sensor pod,
+      showing outer assembled dimensions, internal enclosure space, wall thickness,
+      and cable cutout features used to support sensor integration on the sleeve.
+    </p>
+  </div>
+</section>
+
 <section class="comparison">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="section-label">The Landscape</div>
     <h2 class="section-title">What <em>doesn't</em> work, and why we built something new.</h2>
+
     <p style="font-size: 1.05rem; max-width: 50rem; line-height: 1.7; color: var(--charcoal);">
       The wearable therapy market is fragmented into three categories — each with
       structural limitations that prevent them from serving home-based rehabilitation.
@@ -269,6 +321,7 @@
           rehabilitation movements.
         </p>
       </div>
+
       <div class="comparison-card">
         <h4>Performance Wearables</h4>
         <div class="examples">Villanova · Athos</div>
@@ -278,6 +331,7 @@
           rehabilitation protocols.
         </p>
       </div>
+
       <div class="comparison-card solution">
         <h4>Smart Compression Sleeve</h4>
         <div class="examples">Our approach</div>
@@ -307,6 +361,7 @@
       <div class="footer-brand">Smart Compression<br>Sleeve · Team R</div>
       <p class="footer-tagline">A senior design project bridging consumer wearables and clinical rehabilitation — built at UC Riverside.</p>
     </div>
+
     <div>
       <h5>Project</h5>
       <ul>
@@ -317,6 +372,7 @@
         <li><a href="tech.html">Tech</a></li>
       </ul>
     </div>
+
     <div>
       <h5>Connect</h5>
       <ul>
@@ -326,6 +382,7 @@
       </ul>
     </div>
   </div>
+
   <div class="footer-bottom">
     <div>© 2026 Team R · BIEN · UC Riverside</div>
     <div><em>Built with care in Riverside, California.</em></div>
