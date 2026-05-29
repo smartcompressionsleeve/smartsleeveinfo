@@ -3,447 +3,496 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Smart Compression Sleeve — BIEN UCR </title>
+
+<title>Smart Compression Sleeve — BIEN UCR</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="styles.css">
 
 <style>
-  /* Homepage-specific styles */
+
+.hero {
+  min-height: 100vh;
+  padding: 9rem 3rem 5rem;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+
+.hero::after {
+  content: 'R';
+  position: absolute;
+  bottom: -8rem;
+  right: -3rem;
+  font-family: var(--serif);
+  font-size: 38rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--burgundy);
+  opacity: 0.04;
+  line-height: 0.8;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rose);
+  font-weight: 600;
+}
+
+.hero-meta::before {
+  content: '';
+  width: 3rem;
+  height: 1px;
+  background: var(--rose);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  color: var(--burgundy-deep);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--burgundy);
+  font-weight: 400;
+}
+
+.hero-tagline {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  font-style: italic;
+  color: var(--charcoal);
+  line-height: 1.4;
+  max-width: 32rem;
+  margin-bottom: 3rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 6px;
+  z-index: 2;
+
+  box-shadow:
+    0 30px 60px -20px rgba(74, 15, 24, 0.25),
+    0 0 0 1px rgba(123,45,63,0.12);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+
   .hero {
-    min-height: 100vh;
-    padding: 9rem 3rem 5rem;
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
+    grid-template-columns: 1fr;
+    padding-top: 7rem;
   }
 
   .hero::after {
-    content: 'R';
-    position: absolute;
-    bottom: -8rem;
-    right: -3rem;
-    font-family: var(--serif);
-    font-size: 38rem;
-    font-style: italic;
-    font-weight: 500;
-    color: var(--burgundy);
-    opacity: 0.04;
-    line-height: 0.8;
-    pointer-events: none;
-    z-index: 0;
+    display: none;
   }
 
-  .hero-text { position: relative; z-index: 2; }
+}
 
-  .hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--rose);
-    font-weight: 500;
-  }
+.preview {
+  background: var(--cream-warm);
+  border-top: 1px solid rgba(123, 45, 63, 0.1);
+  padding: 6rem 3rem;
+}
 
-  .hero-meta::before {
-    content: '';
-    width: 3rem;
-    height: 1px;
-    background: var(--rose);
-  }
+.preview-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.8rem, 6vw, 5.5rem);
-    font-weight: 500;
-    line-height: 0.95;
-    color: var(--burgundy-deep);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-  }
+.preview-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--burgundy);
-    font-weight: 400;
-  }
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
 
-  .hero-tagline {
-    font-family: var(--serif);
-    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
-    font-style: italic;
-    color: var(--charcoal);
-    line-height: 1.4;
-    max-width: 32rem;
-    margin-bottom: 3rem;
-    font-weight: 400;
-  }
+.preview-card {
+  background: var(--cream);
+  border: 1px solid rgba(123, 45, 63, 0.12);
+  padding: 2.5rem 2rem;
+  text-decoration: none;
+  color: var(--charcoal);
+  position: relative;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+}
 
-  .hero-image {
-    position: relative;
-    aspect-ratio: 4/5;
-    background: var(--blush);
-    border-radius: 4px;
-    overflow: hidden;
-    z-index: 2;
-    box-shadow:
-      0 30px 60px -20px rgba(74, 15, 24, 0.25),
-      0 0 0 1px var(--rose);
-  }
+.preview-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--burgundy);
+  box-shadow: 0 20px 40px -15px rgba(74, 15, 24, 0.18);
+}
 
-  .hero-image-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--burgundy);
-    font-family: var(--serif);
-    font-style: italic;
-    text-align: center;
-    padding: 2rem;
-  }
+.preview-card .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--rose);
+  margin-bottom: 1rem;
+}
 
-  .hero-image-placeholder svg {
-    width: 70%;
-    max-width: 280px;
-    margin-bottom: 1.5rem;
-    opacity: 0.7;
-  }
+.preview-card h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--burgundy-deep);
+  margin-bottom: 0.7rem;
+}
 
-  .hero-image-placeholder small {
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    font-style: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--rose);
-    margin-top: 0.5rem;
-  }
+.preview-card p {
+  line-height: 1.55;
+  flex: 1;
+}
 
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding-top: 7rem; }
-    .hero::after { display: none; }
-  }
+.preview-card .arrow {
+  font-size: 1.4rem;
+  color: var(--burgundy);
+  margin-top: 1.2rem;
+}
 
-  /* The "explore" preview grid */
-  .preview {
-    background: var(--cream-warm);
-    border-top: 1px solid rgba(123, 45, 63, 0.1);
-    padding: 6rem 3rem;
-  }
+.stats-banner {
+  background: var(--burgundy-deep);
+  color: var(--cream);
+  padding: 5rem 3rem;
+  text-align: center;
+}
 
-  .preview-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+.stats-banner-headline {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 1;
+}
 
-  .preview-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
+.stats-banner-headline em {
+  font-style: italic;
+  color: var(--rose);
+  font-size: 0.5em;
+}
 
-  .preview-header .section-label {
-    justify-content: center;
-  }
+.stats-banner p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  max-width: 36rem;
+  margin: 1.5rem auto 2.5rem;
+  line-height: 1.5;
+}
 
-  .preview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .preview-card {
-    background: var(--cream);
-    border: 1px solid rgba(123, 45, 63, 0.12);
-    padding: 2.5rem 2rem;
-    text-decoration: none;
-    color: var(--charcoal);
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
-    min-height: 240px;
-  }
-
-  .preview-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--burgundy);
-    box-shadow: 0 20px 40px -15px rgba(74, 15, 24, 0.2);
-  }
-
-  .preview-card .num {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.4rem;
-    color: var(--rose);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
-  .preview-card h3 {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--burgundy-deep);
-    margin-bottom: 0.7rem;
-    line-height: 1.15;
-  }
-
-  .preview-card p {
-    font-size: 0.92rem;
-    color: var(--charcoal);
-    line-height: 1.55;
-    flex: 1;
-  }
-
-  .preview-card .arrow {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    color: var(--burgundy);
-    margin-top: 1.2rem;
-    transition: transform 0.3s ease;
-  }
-
-  .preview-card:hover .arrow {
-    transform: translateX(6px);
-  }
-
-  /* Quick stats banner */
-  .stats-banner {
-    background: var(--burgundy-deep);
-    color: var(--cream);
-    padding: 5rem 3rem;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .stats-banner::before, .stats-banner::after {
-    content: '';
-    position: absolute;
-    width: 25rem;
-    height: 25rem;
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .stats-banner::before {
-    background: radial-gradient(circle, rgba(183, 110, 121, 0.18) 0%, transparent 70%);
-    top: -10rem;
-    left: -10rem;
-  }
-
-  .stats-banner::after {
-    background: radial-gradient(circle, rgba(244, 224, 224, 0.10) 0%, transparent 70%);
-    bottom: -10rem;
-    right: -10rem;
-  }
-
-  .stats-banner-headline {
-    font-family: var(--serif);
-    font-size: clamp(3.5rem, 9vw, 7rem);
-    font-weight: 500;
-    color: var(--cream);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    position: relative;
-    z-index: 2;
-  }
-
-  .stats-banner-headline em {
-    font-style: italic;
-    color: var(--rose);
-    font-size: 0.5em;
-    font-weight: 400;
-    vertical-align: 0.55em;
-    margin-left: 0.4rem;
-  }
-
-  .stats-banner p {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.2rem;
-    color: var(--blush);
-    max-width: 36rem;
-    margin: 1.5rem auto 2.5rem;
-    line-height: 1.5;
-    position: relative;
-    z-index: 2;
-  }
-
-  .stats-banner .btn-secondary {
-    color: var(--cream);
-    border-color: var(--cream);
-    position: relative;
-    z-index: 2;
-  }
-
-  .stats-banner .btn-secondary:hover {
-    background: var(--cream);
-    color: var(--burgundy-deep);
-  }
-
-  .hero-text > * { animation: fadeUp 0.9s ease backwards; }
-  .hero-meta { animation-delay: 0.1s; }
-  .hero h1 { animation-delay: 0.25s; }
-  .hero-tagline { animation-delay: 0.4s; }
-  .hero-text .btn-primary, .hero-text .btn-secondary { animation-delay: 0.55s; }
-  .hero-image { animation: fadeUp 1.2s ease 0.3s backwards; }
 </style>
 </head>
+
 <body>
 
-<!-- ============ NAV ============ -->
+<!-- NAV -->
+
 <nav class="site-nav">
-  <a href="index.html" class="brand">Smart Compression Sleeve <span>·</span> Team R</a>
+
+  <a href="index.html" class="brand">
+    Smart Compression Sleeve <span>·</span> Team R
+  </a>
+
   <button class="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
+
   <ul class="nav-links">
+
     <li class="active"><a href="index.html">Home</a></li>
+
     <li class="has-dropdown">
       <a href="solution.html">The Project</a>
+
       <ul class="dropdown">
-        <li><a href="problem.html">The Problem<small>The unmet need</small></a></li>
-        <li><a href="solution.html">The Device<small>Sensors & form factor</small></a></li>
-        <li><a href="gallery.html">Gallery<small>Build photos & demos</small></a></li>
+        <li>
+          <a href="problem.html">
+            The Problem
+            <small>The unmet need</small>
+          </a>
+        </li>
+
+        <li>
+          <a href="solution.html">
+            The Device
+            <small>Sensors & form factor</small>
+          </a>
+        </li>
+
+        <li>
+          <a href="gallery.html">
+            Gallery
+            <small>Build photos & demos</small>
+          </a>
+        </li>
       </ul>
     </li>
+
     <li class="has-dropdown">
       <a href="results.html">Results</a>
+
       <ul class="dropdown">
-        <li><a href="results.html#validation">Sensor Validation<small>IMU, EMG, PPG traces</small></a></li>
-        <li><a href="results.html#classifier">Classifier<small>96.6% accuracy + matrix</small></a></li>
+        <li>
+          <a href="results.html#validation">
+            Sensor Validation
+            <small>IMU, EMG, PPG traces</small>
+          </a>
+        </li>
+
+        <li>
+          <a href="results.html#classifier">
+            Classifier
+            <small>96.6% accuracy + matrix</small>
+          </a>
+        </li>
       </ul>
     </li>
+
     <li><a href="team.html">Team</a></li>
+
     <li class="has-dropdown">
       <a href="tech.html">Tech</a>
+
       <ul class="dropdown">
-        <li><a href="tech.html#code">Code & Repos<small>GitHub links</small></a></li>
-        <li><a href="tech.html#architecture">Architecture<small>System diagram</small></a></li>
-        <li><a href="tech.html#hardware">Hardware<small>Bill of materials</small></a></li>
+        <li>
+          <a href="tech.html#code">
+            Code & Repos
+            <small>GitHub links</small>
+          </a>
+        </li>
+
+        <li>
+          <a href="tech.html#architecture">
+            Architecture
+            <small>System diagram</small>
+          </a>
+        </li>
+
+        <li>
+          <a href="tech.html#hardware">
+            Hardware
+            <small>Bill of materials</small>
+          </a>
+        </li>
       </ul>
     </li>
+
   </ul>
 </nav>
 
-<!-- ============ HERO ============ -->
+<!-- HERO -->
+
 <section class="hero">
+
   <div class="hero-text">
-    <div class="hero-meta">UCR BIEN Senior Design 2026</div>
-    <h1>A wearable that knows<br><em>good form</em> from bad.</h1>
+
+    <div class="hero-meta">
+      UCR BIEN Senior Design 2026
+    </div>
+
+    <h1>
+      A wearable that knows<br>
+      <em>good form</em> from bad.
+    </h1>
+
     <p class="hero-tagline">
       A multi-sensor compression sleeve that classifies bicep curl form in real time —
       bringing objective, clinical-grade feedback into at-home rehabilitation.
     </p>
-    <a href="results.html" class="btn-primary">See the results →</a>
-    <a href="team.html" class="btn-secondary">Meet the team</a>
+
+    <div class="hero-buttons">
+      <a href="results.html" class="btn-primary">
+        See the results →
+      </a>
+
+      <a href="team.html" class="btn-secondary">
+        Meet the team
+      </a>
+    </div>
+
   </div>
 
   <div class="hero-image">
-    <!-- Replace placeholder: <img src="images/device-hero.jpg" alt="Smart Compression Sleeve" style="width:100%;height:100%;object-fit:cover;"> -->
-    <div class="hero-image-placeholder">
-      <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M70 30 Q70 20 80 20 L120 20 Q130 20 130 30 L130 215 Q130 225 120 225 L80 225 Q70 225 70 215 Z" stroke="#7B2D3F" stroke-width="2" fill="#FAEFEF"/>
-        <rect x="85" y="60" width="30" height="22" rx="3" fill="#7B2D3F"/>
-        <rect x="85" y="105" width="30" height="22" rx="3" fill="#7B2D3F"/>
-        <rect x="85" y="155" width="30" height="22" rx="3" fill="#7B2D3F"/>
-        <line x1="65" y1="50" x2="55" y2="50" stroke="#B76E79" stroke-width="1" stroke-dasharray="2,2"/>
-        <line x1="65" y1="120" x2="55" y2="120" stroke="#B76E79" stroke-width="1" stroke-dasharray="2,2"/>
-        <line x1="135" y1="170" x2="145" y2="170" stroke="#B76E79" stroke-width="1" stroke-dasharray="2,2"/>
-      </svg>
-      <p>Device hero photo</p>
-      <small>Replace with image</small>
-    </div>
+
+    <img
+      src="fulll-image-device.png"
+      alt="Smart Compression Sleeve Device"
+    >
+
   </div>
+
 </section>
 
-<!-- ============ STATS BANNER (the 96.6%) ============ -->
+<!-- STATS -->
+
 <section class="stats-banner">
-  <div class="section-label" style="justify-content: center; color: var(--rose);">Headline Result</div>
-  <div class="stats-banner-headline">96.6<em>%</em></div>
+
+  <div class="section-label" style="justify-content:center; color: var(--rose);">
+    Headline Result
+  </div>
+
+  <div class="stats-banner-headline">
+    96.6<em>%</em>
+  </div>
+
   <p>
     Four-class form classification accuracy across 417 labeled bicep curl repetitions,
     using five-fold trial-grouped cross-validation.
   </p>
-  <a href="results.html" class="btn-secondary">View full results →</a>
+
+  <a href="results.html" class="btn-secondary">
+    View full results →
+  </a>
+
 </section>
 
-<!-- ============ EXPLORE PREVIEW GRID ============ -->
+<!-- PREVIEW -->
+
 <section class="preview">
+
   <div class="preview-inner">
+
     <div class="preview-header">
       <div class="section-label">Explore</div>
-      <h2 class="section-title">A wearable, <em>broken down.</em></h2>
+
+      <h2 class="section-title">
+        A wearable, <em>broken down.</em>
+      </h2>
     </div>
 
     <div class="preview-grid">
+
       <a href="problem.html" class="preview-card">
         <div class="num">i.</div>
         <h3>The Problem</h3>
-        <p>70% of PT patients don't complete prescribed home exercises. Existing wearables don't know form from fitness.</p>
+        <p>
+          70% of PT patients don't complete prescribed home exercises.
+          Existing wearables don't know form from fitness.
+        </p>
         <div class="arrow">→</div>
       </a>
 
       <a href="solution.html" class="preview-card">
         <div class="num">ii.</div>
         <h3>The Device</h3>
-        <p>Six sensors, three fabric layers, one classifier. Built for at-home rehabilitation — not the lab bench.</p>
+        <p>
+          Six sensors, three fabric layers, one classifier.
+          Built for at-home rehabilitation — not the lab bench.
+        </p>
         <div class="arrow">→</div>
       </a>
 
       <a href="results.html" class="preview-card">
         <div class="num">iii.</div>
         <h3>Results</h3>
-        <p>Sensor validation across IMU, EMG, and PPG channels. Random Forest classifier hits 96.6% on 417 reps.</p>
+        <p>
+          Sensor validation across IMU, EMG, and PPG channels.
+          Random Forest classifier hits 96.6% on 417 reps.
+        </p>
         <div class="arrow">→</div>
       </a>
 
       <a href="team.html" class="preview-card">
         <div class="num">iv.</div>
         <h3>The Team</h3>
-        <p>Six engineers from across bioengineering — hardware, software, signal processing, manufacturing.</p>
+        <p>
+          Six engineers across bioengineering, hardware,
+          software, signal processing, and manufacturing.
+        </p>
         <div class="arrow">→</div>
       </a>
 
       <a href="tech.html" class="preview-card">
         <div class="num">v.</div>
         <h3>The Tech</h3>
-        <p>Open code, hardware bill of materials, and the full system architecture from sensor to feedback.</p>
+        <p>
+          Open code, hardware bill of materials,
+          and full system architecture from sensor to feedback.
+        </p>
         <div class="arrow">→</div>
       </a>
 
       <a href="gallery.html" class="preview-card">
         <div class="num">vi.</div>
         <h3>Gallery</h3>
-        <p>Build photos, demo videos, and behind-the-scenes shots from the lab.</p>
+        <p>
+          Build photos, demo videos,
+          and behind-the-scenes lab development.
+        </p>
         <div class="arrow">→</div>
       </a>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- FOOTER -->
+
 <footer>
+
   <div class="footer-content">
+
     <div>
-      <div class="footer-brand">Smart Compression<br>Sleeve · Team R</div>
+      <div class="footer-brand">
+        Smart Compression<br>
+        Sleeve · Team R
+      </div>
+
       <p class="footer-tagline">
-        A senior design project bridging consumer wearables and clinical rehabilitation —
-        built at UC Riverside.
+        A senior design project bridging consumer wearables
+        and clinical rehabilitation — built at UC Riverside.
       </p>
     </div>
+
     <div>
       <h5>Project</h5>
+
       <ul>
         <li><a href="problem.html">The Problem</a></li>
         <li><a href="solution.html">The Device</a></li>
@@ -452,21 +501,32 @@
         <li><a href="tech.html">Tech</a></li>
       </ul>
     </div>
+
     <div>
       <h5>Connect</h5>
+
       <ul>
-        <li><a href="https://github.com/smartcompressionsleeve/smart-compression-sleeve" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+        <li>
+          <a href="https://github.com/smartcompressionsleeve/smart-compression-sleeve" target="_blank">
+            GitHub Repository
+          </a>
+        </li>
+
         <li><a href="#">Demo Video</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </div>
+
   </div>
+
   <div class="footer-bottom">
     <div>© 2026 Smart Compression Sleeve · BIEN · UC Riverside</div>
     <div><em>Built with care in Riverside, California.</em></div>
   </div>
+
 </footer>
 
 <script src="nav.js"></script>
+
 </body>
 </html>
